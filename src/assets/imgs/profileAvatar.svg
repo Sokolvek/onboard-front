@@ -1,0 +1,16 @@
+<svg width="163" height="157" viewBox="0 0 163 157" fill="none" xmlns="http://www.w3.org/2000/svg">
+<ellipse cx="147.5" cy="15.5" rx="5.425" ry="15.5" fill="#3873E9"/>
+<ellipse cx="147.5" cy="15.5" rx="5.425" ry="15.5" transform="rotate(-90 147.5 15.5)" fill="#3873E9"/>
+<ellipse cx="12" cy="145" rx="4.2" ry="12" fill="#3873E9"/>
+<ellipse cx="12" cy="145" rx="4.2" ry="12" transform="rotate(-90 12 145)" fill="#3873E9"/>
+<mask id="mask0_26_75" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="6" width="142" height="142">
+<circle cx="71" cy="77" r="69.5" fill="white" stroke="#3873E9" stroke-width="3"/>
+</mask>
+<g mask="url(#mask0_26_75)">
+<circle cx="71" cy="77" r="69.5" fill="white" stroke="#3873E9" stroke-width="3"/>
+<circle cx="71" cy="141" r="52.5" fill="#2D78EA" stroke="#3873E9" stroke-width="3"/>
+<circle cx="72.5" cy="57.5" r="25" fill="#3873E9" stroke="#3873E9" stroke-width="3"/>
+<circle cx="80" cy="47" r="8" fill="white"/>
+<circle cx="89" cy="60" r="4" fill="white"/>
+</g>
+</svg>
