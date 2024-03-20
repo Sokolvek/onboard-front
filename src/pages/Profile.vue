@@ -29,7 +29,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from "vue"
+import { onMounted, ref } from "vue"
 import { useCounterStore } from "../stores/counter";
 import NavBar from "../components/NavBar.vue";
 

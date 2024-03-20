@@ -21,7 +21,7 @@
         </ul>
      
         <!-- {{ notes }} -->
-        <BackHome />
+        <!-- <BackHome /> -->
         <!-- <Toast /> -->
     </section>
 </template>

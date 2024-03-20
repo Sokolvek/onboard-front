@@ -8,7 +8,7 @@
           <p>on board quiz</p>
         </div>
       </div>
-      <NavBar />
+      <!-- <NavBar /> -->
     </header>
     <form action="">
       <div class="input">
