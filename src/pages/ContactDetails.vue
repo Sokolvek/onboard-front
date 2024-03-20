@@ -8,7 +8,7 @@
                     <p>Detailed information about the contacts to help you keep in touch.</p>
                 </div>
             </div>
-            <NavBar />
+
         </header>
         <div class="tips" v-if="tips.content">
             <div class="tip" v-for="(contact,i) in tips.content" :key="i">

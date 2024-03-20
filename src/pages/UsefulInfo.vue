@@ -8,7 +8,7 @@
                     <p>Important things to keep in mind.</p>
                 </div>
             </div>
-            <NavBar />
+            <!-- <NavBar /> -->
         </header>
         <div class="tips" v-if="tips.content">
             <div class="tip" v-for="(tip,i) in tips.content" :key="i">

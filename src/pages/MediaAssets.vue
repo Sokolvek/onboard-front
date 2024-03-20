@@ -8,7 +8,6 @@
           <p>Upload images for advertisement from your local device.</p>
         </div>
       </div>
-      <NavBar />
     </header>
     <ul>
       <li v-for="(image, i) in images" :key="i">

@@ -8,7 +8,7 @@
                     <p>Reports from the company to illustrate the impact of our cooperation.</p>
                 </div>
             </div>
-            <NavBar />
+            <!-- <NavBar /> -->
         </header>
         <div class="imgs-list" v-for="(image,i) in images.imageUrls" :key="i">
             <div class="img-wrapper">
