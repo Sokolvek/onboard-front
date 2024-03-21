@@ -27,6 +27,7 @@
             <ChangeContacts :email="route.params.email" :content="userData.contactDetailsContent" />
             <AddMedia :email="route.params.email" />
         </form>
+        <button @click="downloadAllMedia">download media assets</button>
     </section>
 </template>
 
@@ -34,6 +35,7 @@
 import { onMounted, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useCounterStore } from "../../stores/counter";
+import {useToast} from 'vue-toast-notification';
 import AddNote from "../../components/admin/AddNote.vue"
 import ChangeUsefulNote from "../../components/admin/ChangeUsefulNote.vue"
 import ChangeContacts from "../../components/admin/ChangeContacts.vue"
@@ -43,6 +45,7 @@ const store = useCounterStore()
 const url = import.meta.env.VITE_BASE_URL
 const route = useRoute()
 const router = useRouter()
+const $toast = useToast();
 const user = route.params
 const userData = ref({})
 const indexStage = ref(1)
@@ -84,6 +87,31 @@ async function changeStage(){
         body:JSON.stringify(body)
     })
     .then((response) => console.log(response))
+}
+
+async function downloadAllMedia() {
+    console.log(route.params.email);
+    await fetch(`${url}/image/media-assets/zipped/${route.params.email}`, {
+        method: "GET",
+        headers: { 
+            "Authorization": "Bearer " + store.jwt
+        },
+    }).then((response) => {
+        if(response.status == 200){
+            $toast.open({message:"success", type:"success", position:"top"})
+        }else{
+            $toast.open({message:"error caused", type:"error", position:"top"})
+        }
+        return response.blob();
+    }).then((blob) => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'media.zip';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+    })
 }
 
 onMounted(() =>{

@@ -10,7 +10,7 @@
                         <p>Reports from the company to illustrate the impact of our cooperation.</p>
                     </div>
                 </div>
-                <!-- <NavBar /> -->
+                <button @click="downloadAllMedia">download all reports</button>
             </header>
             <div class="imgs-list" v-for="(image,i) in images.imageUrls" :key="i">
                 <div class="img-wrapper">
@@ -39,8 +39,10 @@ import NewNav from '../components/NewNav.vue';
 import { onMounted, ref } from 'vue';
 import { useCounterStore } from '../stores/counter';
 import NavBar from '../components/NavBar.vue';
+import {useToast} from 'vue-toast-notification';
 import BackHome from "../components/BackHome.vue"
-
+const $toast = useToast();
+const canDownload = true
 const images = ref({})
 const store = useCounterStore()
 const url = import.meta.env.VITE_BASE_URL
@@ -56,6 +58,32 @@ async function getImages(){
     .then((data) => {
         console.log(data)
         images.value = data})
+}
+
+async function downloadAllMedia() {
+    await fetch(`${url}/image/paid-advertising-reports/zipped/${localStorage.getItem("email")}`, {
+        method: "GET",
+        headers: { 
+            "Authorization": "Bearer " + store.jwt
+        },
+    }).then((response) => {
+        if(response.status == 200){
+            $toast.open({message:"success", type:"success", position:"top"})
+        }else{
+            $toast.open({message:"error caused", type:"error", position:"top"})
+            canDownload = false
+        }
+        return response.blob();
+    }).then((blob) => {
+        if(!canDownload) return
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'reports.zip';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+    })
 }
 
 onMounted(() => {
@@ -138,6 +166,15 @@ section{
 .img-wrapper > div > button > a{
     color: white;
     text-decoration: none;
+}
+
+button{
+    padding: 0.375rem 0.75rem;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    background-color: #0d6efd;
+    font-size: 18px;
 }
 
 </style>
