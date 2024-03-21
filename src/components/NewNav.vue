@@ -37,7 +37,6 @@ function goToPage(path, index){
     router.push(`/${path}`)
     
     store.navIndex = index
-    console.log(itemIndex)
 }
 </script>
 
