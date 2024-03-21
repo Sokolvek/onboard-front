@@ -70,7 +70,10 @@ function successLogin(){
 
 
 async function regUser(){
-
+  if(!formValue.email || !formValue.name || !formValue.password){
+    $toast.open({message:"please fill the fields", type:"error", position:"top"})
+    return
+  }
 
   const response = await fetch(`${url}/auth/register`,
   {
