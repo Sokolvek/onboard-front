@@ -3,7 +3,7 @@
             <h2>Add useful note</h2>
         </header>
     <div class="useful-notes">
-        <textarea v-model="contactOne" rows="2"></textarea>
+        <textarea v-model="contactOne" rows="1"></textarea>
         <button @click.prevent="changeUsefulNote">save</button>
     </div>
 </template>
