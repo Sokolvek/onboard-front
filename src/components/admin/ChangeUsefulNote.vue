@@ -1,9 +1,9 @@
 <template>
-    <div class="useful-notes">
-        <header>
+     <header>
             <h2>Add useful note</h2>
         </header>
-        <input type="text" v-model="noteOne"/>
+    <div class="useful-notes">
+        <textarea v-model="contactOne" rows="2"></textarea>
         <button @click.prevent="changeUsefulNote">save</button>
     </div>
 </template>
@@ -74,5 +74,11 @@ onMounted(() => {
 
 .useful-notes > button{
     width: fit-content;
+}
+
+.useful-notes > textarea{
+    resize: none;
+    min-height: 16px;
+
 }
 </style>

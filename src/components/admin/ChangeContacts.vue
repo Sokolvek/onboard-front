@@ -1,7 +1,9 @@
 <template>
-    <div class="contact-details">
+    <header>
         <h2>Change contacts details</h2>
-        <input type="text" v-model="contactOne">
+    </header>
+    <div class="contact-details">
+        <textarea v-model="contactOne" rows="1"></textarea>
         <button @click.prevent="changeUsefulNote">change contact</button>
     </div>
 </template>
@@ -27,6 +29,7 @@ function formatDate(){
     const formattedDate = `${year}-${month}-${day}`;
     return formattedDate
 }
+
 
 async function changeUsefulNote(){
     if(contactOne.value == "") {
@@ -64,5 +67,11 @@ async function changeUsefulNote(){
 
 .contact-details > button{
     width: fit-content;
+}
+
+.contact-details > textarea{
+    resize: none;
+    min-height: 16px;
+
 }
 </style>
