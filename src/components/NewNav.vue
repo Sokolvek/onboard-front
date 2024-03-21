@@ -83,6 +83,7 @@ function goToPage(path, index){
 
 .popup-item > img{
     width: 45px;
+    max-height: 50px;
     padding: 10px;
 }
 
