@@ -1,31 +1,10 @@
 <template>
     <div class="popup">
         <ul class="popup-list">
-            <li @click="goToPage('onboarding')" class="popup-item">
-                <img src="../assets/imgs/onboard-icon.svg" alt="">
-                <p>Onboarding</p>
-            </li>
-            <li @click="goToPage('media-assets')" class="popup-item">
-                <img src="../assets/imgs/media-assets-icon.svg" alt="">
-                <p>Media Assets</p>
-            </li>
-            <li @click="goToPage('paid-advertising-reports')" class="popup-item">
-                <img src="../assets/imgs/paid-icon.svg" alt="">
-                <p>Paid Adversting Reports</p>
-            </li>
-            <li @click="goToPage('meeting-notes')" class="popup-item">
-                <img src="../assets/imgs/meeting-icon.svg" alt="">
-                <p>Meeting Notes</p>
-            </li>
-            <li @click="goToPage('useful-info')" class="popup-item">
-                <img src="../assets/imgs/useful-icon.svg" alt="">
-                <p>Useful Info</p>
-            </li>
-            <li @click="goToPage('contacts-details')" class="popup-item">
-                <img src="../assets/imgs/contact-icon.svg" alt="">
-                <p>Client Contact Details</p>
-            </li>
-            
+            <li v-for="(item,i) in items" :class="{active : i === store.navIndex}" class="popup-item" :key="i"  @click="goToPage(item.name, i)" >
+            <img :src="item.icon" alt="">
+            <p>{{ item.title }}</p>
+        </li>
         </ul>
     </div>
 </template>
@@ -33,10 +12,32 @@
 
 <script setup>
 import {useRouter} from "vue-router"
+import { useCounterStore } from "../stores/counter";
+import {ref} from "vue"
 const router = useRouter()
+const store = useCounterStore()
 
-function goToPage(path){
+import onBoard from "../assets/imgs/onboard-icon.svg"
+import mediaAssets from "../assets/imgs/media-assets-icon.svg"
+import reports from "../assets/imgs/paid-icon.svg"
+import notes from "../assets/imgs/meeting-icon.svg"
+import info from "../assets/imgs/useful-icon.svg"
+import contact from "../assets/imgs/contact-icon.svg"
+
+const items = [
+                { name: 'onboarding', icon: onBoard, title: 'Onboarding' },
+                { name: 'media-assets', icon: mediaAssets, title: 'Media Assets' },
+                { name: 'paid-advertising-reports', icon: reports, title: 'Paid Advertising Reports' },
+                { name: 'meeting-notes', icon: notes, title: 'Meeting Notes' },
+                { name: 'useful-info', icon: info, title: 'Useful Info' },
+                { name: 'contacts-details', icon: contact, title: 'Client Contact Details' },
+            ]
+
+function goToPage(path, index){
     router.push(`/${path}`)
+    
+    store.navIndex = index
+    console.log(itemIndex)
 }
 </script>
 
@@ -88,5 +89,9 @@ function goToPage(path){
 
 .popup-item > p{
     color: #3873E9;
+}
+
+.popup-item.active{
+    background: #3873E926;
 }
 </style>

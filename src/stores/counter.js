@@ -6,7 +6,8 @@ export const useCounterStore = defineStore("counter", {
   state: () => ({
     sum: 0,
     navPopup:false,
-    jwt:null
+    jwt:null,
+    navIndex:0
   }),
   getters: {
 
