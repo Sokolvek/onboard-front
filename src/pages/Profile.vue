@@ -3,7 +3,7 @@
         <NewNav/>
         <img class="section-header" src="../assets/imgs/Group 41.svg" alt="">
         <section class="section container">
-            <NavBar class="profile-nav" />
+            <!-- <NavBar class="profile-nav" /> -->
             <div class="profile-block">
                 <img src="../assets/imgs/profileAvatar.svg" alt="">
                 <h2>Good Day, dear {{userData.fullName}}!</h2>
@@ -149,7 +149,6 @@ h3 {
     font-size: 30px;
     color: #3873E9;
     transition: 0.5s;
-    cursor: pointer;
 }
 
 .roadmap-btn.active {

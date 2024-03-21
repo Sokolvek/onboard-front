@@ -44,15 +44,16 @@ function goToPage(path){
 
 .popup{
     position: fixed;
-    top: 50%;
+    top: 40%;
     right: 0;
-    transform: translateY(-50%);
+    
     background: white;
     z-index: 100;
    
 }
 
 .popup-list{
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     transform: translateX(72%);
@@ -69,8 +70,15 @@ function goToPage(path){
 }
 
 .popup-item{
+    transition: .5s;
     display: flex;
     align-items: center;
+    cursor: pointer;
+}
+
+.popup-item:hover{
+    box-shadow: -5px 0px 15px 0px #00000040;
+
 }
 
 .popup-item > img{

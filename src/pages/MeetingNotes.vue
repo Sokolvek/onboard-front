@@ -10,7 +10,7 @@
                         <p>Notes from previous meetings. New appointments.</p>
                     </div>
                 </div>
-                <NavBar />
+                <!-- <NavBar /> -->
             </header>
             <ul v-if="notes.meetingNotes">
                 <li @click="gotoPage(note.id)" v-for="(note, i) in notes.meetingNotes" :key="i">
