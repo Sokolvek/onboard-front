@@ -1,9 +1,9 @@
 <template>
-    <div class="useful-notes">
-        <header>
+     <header>
             <h2>Add useful note</h2>
         </header>
-        <input type="text" v-model="noteOne"/>
+    <div class="useful-notes">
+        <textarea required class="textarea" name="" id="" cols="10" rows="5" v-model="usefulNoteContent" ></textarea>
         <button @click.prevent="changeUsefulNote">save</button>
     </div>
 </template>
@@ -16,7 +16,7 @@ import 'vue-toast-notification/dist/theme-sugar.css';
 const $toast = useToast();
 const store = useCounterStore()
 const url = import.meta.env.VITE_BASE_URL
-const noteOne = ref("")
+const usefulNoteContent = ref("")
 
 
 const props = defineProps({
@@ -33,12 +33,12 @@ function formatDate(){
 }
 
 async function changeUsefulNote(){
-    if(noteOne.value == "") {
+    if(usefulNoteContent.value == "") {
         $toast.open({message:"please fill the field", type:"error", position:"top"})
         return
     }
     const body = {
-        content:noteOne.value.split(" "),
+        content:usefulNoteContent.value,
         date:formatDate()
     }
     await fetch(`${url}/note/useful-info/${props.email}`,{
@@ -74,5 +74,11 @@ onMounted(() => {
 
 .useful-notes > button{
     width: fit-content;
+}
+
+.useful-notes > textarea{
+    resize: none;
+    min-height: 16px;
+
 }
 </style>
