@@ -33,8 +33,8 @@ const items = [
                 { name: 'contacts-details', icon: contact, title: 'Client Contact Details' },
             ]
 
-function goToPage(path, index){
-    router.push(`/${path}`)
+function goToPage(name, index){
+    router.push(`/${name}`)
     
     store.navIndex = index
 }
@@ -47,7 +47,7 @@ function goToPage(path, index){
     top: 40%;
     right: 0;
     
-    background: white;
+    background: rgba(255, 255, 255, 0);
     z-index: 100;
    
 }
@@ -58,10 +58,12 @@ function goToPage(path, index){
     flex-direction: column;
     transform: translateX(72%);
     transition: 1s;
-    border: 1px solid black;
     border-bottom-left-radius: 8px;
     border-top-left-radius: 8px;
     border-right: none;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 
 }
 
@@ -70,15 +72,18 @@ function goToPage(path, index){
 }
 
 .popup-item{
-    transition: .5s;
+    transition: .2s;
     display: flex;
     align-items: center;
     cursor: pointer;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+    background: white;
 }
 
-.popup-item:hover{
-    box-shadow: -5px 0px 15px 0px #00000040;
-
+.popup-item:hover {
+    box-shadow: 0px 0px 10px 0px #82858d;
+    position: relative;
 }
 
 .popup-item > img{
@@ -91,6 +96,6 @@ function goToPage(path, index){
 }
 
 .popup-item.active{
-    background: #3873E926;
+    background: #ebf0fa;
 }
 </style>
