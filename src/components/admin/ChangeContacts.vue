@@ -3,7 +3,7 @@
         <h2>Change contacts details</h2>
     </header>
     <div class="contact-details">
-        <textarea v-model="contactOne" rows="1"></textarea>
+        <textarea required class="textarea" name="" id="" cols="10" rows="5" v-model="contactsContent" ></textarea>
         <button @click.prevent="changeUsefulNote">change contact</button>
     </div>
 </template>
@@ -19,8 +19,7 @@ const props = defineProps({
 })
 const store = useCounterStore()
 const url = import.meta.env.VITE_BASE_URL
-const contactOne = ref("")
-const contactTwo = ref("")
+const contactsContent = ref("")
 function formatDate(){
     const date = new Date();
     const year = date.getFullYear();
@@ -32,12 +31,12 @@ function formatDate(){
 
 
 async function changeUsefulNote(){
-    if(contactOne.value == "") {
+    if(contactsContent.value == "") {
         $toast.open({message:"please fill the field", type:"error", position:"top"})
         return
     }
     const body = {
-        content:contactOne.value.split(" "),
+        content:contactsContent.value,
         date:formatDate()
     }
     await fetch(`${url}/note/contact-details/${props.email}`,{

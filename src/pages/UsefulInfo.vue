@@ -10,8 +10,8 @@
             </div>
             <!-- <NavBar /> -->
         </header>
-        <div class="tips" v-if="tips.content">
-            <div class="tip" v-for="(tip,i) in tips.content" :key="i">
+        <div class="tips" v-if="tips.content.split('\n')">
+            <div class="tip" v-for="(tip,i) in tips.split('\n')" :key="i">
                 <img src="../assets/imgs/dot-icon.svg" alt="">
                 <span>{{ tip }}</span>
             </div>
