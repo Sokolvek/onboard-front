@@ -3,23 +3,24 @@
         <h2>Change contacts details</h2>
     </header>
     <div class="contact-details">
-        <textarea required class="textarea" name="" id="" cols="10" rows="5" v-model="contactsContent" ></textarea>
+        <textarea required class="textarea" name="" id="" cols="10" rows="5" v-model="contactDetailsContent" ></textarea>
         <button @click.prevent="changeUsefulNote">change contact</button>
     </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import {onMounted, ref, watch} from 'vue';
 import { useCounterStore } from '../../stores/counter';
 import {useToast} from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
 const $toast = useToast();
 const props = defineProps({
-    email:String
+    email:String,
+    content: String
 })
 const store = useCounterStore()
 const url = import.meta.env.VITE_BASE_URL
-const contactsContent = ref("")
+const contactDetailsContent = ref("")
 function formatDate(){
     const date = new Date();
     const year = date.getFullYear();
@@ -31,12 +32,12 @@ function formatDate(){
 
 
 async function changeUsefulNote(){
-    if(contactsContent.value == "") {
+    if(contactDetailsContent.value == "") {
         $toast.open({message:"please fill the field", type:"error", position:"top"})
         return
     }
     const body = {
-        content:contactsContent.value,
+        content:contactDetailsContent.value,
         date:formatDate()
     }
     await fetch(`${url}/note/contact-details/${props.email}`,{
@@ -54,6 +55,9 @@ async function changeUsefulNote(){
     })
 }
 
+watch(() => props.content, value => {
+    contactDetailsContent.value = value
+});
 
 </script>
 

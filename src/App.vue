@@ -1,17 +1,17 @@
 <script setup>
-import { onMounted } from 'vue';
+import {onMounted} from 'vue';
 import Navigation from './components/Navigation.vue';
-import { useCounterStore } from './stores/counter';
-import { useRouter } from 'vue-router'; 
+import {useCounterStore} from './stores/counter';
+import {useRouter} from 'vue-router';
 import BackHome from "./components/BackHome.vue"
 import NewNav from './components/NewNav.vue';
 
 const store = useCounterStore()
 const router = useRouter()
 onMounted(() => {
-  if(store.getCookieJwt() == null){
+  if (store.getCookieJwt() == null) {
     router.push("/")
-  }else{
+  } else {
     store.jwt = store.getCookieJwt()[1]
   }
 })
@@ -19,13 +19,13 @@ onMounted(() => {
 
 <template>
   <div>
-    <NewNav />
-    // <Navigation />
-   <router-view v-slot="{ Component }">
+    <NewNav/>
+    <Navigation/>
+    <router-view v-slot="{ Component }">
       <transition name="fade" mode="out-in">
         <component :is="Component"/>
       </transition>
-      </router-view>
+    </router-view>
   </div>
 </template>
 

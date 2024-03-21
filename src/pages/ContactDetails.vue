@@ -11,7 +11,7 @@
 
         </header>
         <div class="tips" v-if="tips.content">
-            <div class="tip" v-for="(contact,i) in tips.content" :key="i">
+            <div class="tip" v-for="(contact,i) in tips.content.split('\n')" :key="i">
                 <img src="../assets/imgs/dot-icon.svg" alt="">
                 <span>{{ contact }}</span>
             </div>
@@ -87,6 +87,7 @@ section{
     flex-direction: column;
     gap: 10px;
     margin-top: 40px;
+    margin-left: 40px;
 }
 
 .tip{

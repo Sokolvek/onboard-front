@@ -13,7 +13,7 @@
             <img src="../assets/imgs/dot-icon.svg" alt="">
             <span>{{ noteContent }}</span>
     </div>
-    </section>    
+    </section>
 </template>
 
 <script setup>
@@ -32,7 +32,7 @@ const noteContent = ref()
 async function getNoteById(){
     await fetch(`${url}/note/meeting-notes/${localStorage.getItem("email")}/${noteId}`,{
         method:"GET",
-        headers:{ 
+        headers:{
             "Authorization":"Bearer " + store.jwt
         },
     }).then((response) => response.json())
@@ -58,13 +58,13 @@ section{
     gap: 20px;
     justify-content: space-between;
     align-items: center;
-    
+
 }
 
 .header-title{
     display: flex;
     gap: 20px;
-   
+
 }
 
 .header-title > img{
@@ -81,6 +81,7 @@ section{
     align-items: center;
     gap: 10px;
     margin-top: 40px;
+    margin-left: 40px;
 }
 
 .tip{

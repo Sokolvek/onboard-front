@@ -23,8 +23,8 @@
                 <h2>Add new note:</h2>
                 <AddNote :email="route.params.email" />
             </div>
-            <ChangeUsefulNote :email="route.params.email" />
-            <ChangeContacts :email="route.params.email" />
+            <ChangeUsefulNote :email="route.params.email" :content="userData.usefulInfoContent" />
+            <ChangeContacts :email="route.params.email" :content="userData.contactDetailsContent" />
             <AddMedia :email="route.params.email" />
         </form>
     </section>
@@ -60,6 +60,7 @@ async function getClientData(){
     .then((data) => {
         console.log(data)
         userData.value = data
+        // console.log(userData.value.contactDetailsContent)
         // userStages.value = [...data.onboardingStages]
         indexStage.value = data.activeStage
     })
