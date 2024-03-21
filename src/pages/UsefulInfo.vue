@@ -10,8 +10,8 @@
             </div>
             <!-- <NavBar /> -->
         </header>
-        <div class="tips" v-if="tips.content.split('\n')">
-            <div class="tip" v-for="(tip,i) in tips.split('\n')" :key="i">
+        <div class="tips" v-if="tips.content">
+            <div class="tip" v-for="(tip,i) in tips.content.split('\n')" :key="i">
                 <img src="../assets/imgs/dot-icon.svg" alt="">
                 <span>{{ tip }}</span>
             </div>
@@ -25,6 +25,7 @@ import { onMounted, ref } from "vue";
 import { useCounterStore } from "../stores/counter";
 import NavBar from "../components/NavBar.vue";
 import BackHome from "../components/BackHome.vue"
+import Header from "../components/Header.vue";
 
 const store = useCounterStore()
 const tips = ref({})
@@ -86,6 +87,7 @@ section{
     flex-direction: column;
     gap: 10px;
     margin-top: 40px;
+    margin-left: 40px;
 }
 
 .tip{
