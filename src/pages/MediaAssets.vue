@@ -1,28 +1,33 @@
 <template>
-  <section class="container">
-    <header class="header">
-      <div class="header-title">
-        <img src="../assets/imgs/media-assets-icon.svg" alt="" />
-        <div>
-          <h2>Media Assets</h2>
-          <p>Upload images for advertisement from your local device.</p>
+  <div>
+    <NewNav/>
+    <section class="container">
+      <header class="header">
+        <div class="header-title">
+          <img src="../assets/imgs/media-assets-icon.svg" alt="" />
+          <div>
+            <h2>Media Assets</h2>
+            <p>Upload images for advertisement from your local device.</p>
+          </div>
         </div>
-      </div>
-    </header>
-    <ul>
-      <li v-for="(image, i) in images" :key="i">
-        {{ image }}
-      </li>
-    </ul>
-    <MediaPopup @close-popup="popup = false" />
-    <BackHome />
-  </section>
+      </header>
+      <ul>
+        <li v-for="(image, i) in images" :key="i">
+          {{ image }}
+        </li>
+      </ul>
+      <MediaPopup @close-popup="popup = false" />
+      <BackHome />
+    </section>
+
+  </div>
 </template>
 
 <script setup>
 import { useCounterStore } from "../stores/counter";
 import MediaPopup from "../components/MediaPopup.vue";
 import NavBar from "../components/NavBar.vue";
+import NewNav from "../components/NewNav.vue";
 import { onMounted, ref } from "vue";
 import BackHome from "../components/BackHome.vue";
 

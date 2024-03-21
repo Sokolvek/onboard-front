@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        <NewNav/>
         <img class="section-header" src="../assets/imgs/Group 41.svg" alt="">
         <section class="section container">
             <NavBar class="profile-nav" />
@@ -32,7 +32,7 @@
 import { onMounted, ref } from "vue"
 import { useCounterStore } from "../stores/counter";
 import NavBar from "../components/NavBar.vue";
-
+import NewNav from "../components/NewNav.vue";
 
 const store = useCounterStore()
 

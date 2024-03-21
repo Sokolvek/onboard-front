@@ -1,30 +1,34 @@
 <template>
-    <section class="container">
-        <header class="header">
-            <div class="header-title">
-                <img src="../assets/imgs/contact-icon.svg" alt="">
-                <div>
-                    <h2>Contact Details</h2>
-                    <p>Detailed information about the contacts to help you keep in touch.</p>
+    <div>
+        <NewNav/>
+        <section class="container">
+            <header class="header">
+                <div class="header-title">
+                    <img src="../assets/imgs/contact-icon.svg" alt="">
+                    <div>
+                        <h2>Contact Details</h2>
+                        <p>Detailed information about the contacts to help you keep in touch.</p>
+                    </div>
                 </div>
+    
+            </header>
+            <div class="tips" v-if="tips.content">
+                <div class="tip" v-for="(contact,i) in tips.content.split('\n')" :key="i">
+                    <img src="../assets/imgs/dot-icon.svg" alt="">
+                    <span>{{ contact }}</span>
+                </div>
+               
             </div>
-
-        </header>
-        <div class="tips" v-if="tips.content">
-            <div class="tip" v-for="(contact,i) in tips.content.split('\n')" :key="i">
-                <img src="../assets/imgs/dot-icon.svg" alt="">
-                <span>{{ contact }}</span>
-            </div>
-           
-        </div>
-        <BackHome />
-    </section>
+            <BackHome />
+        </section>
+    </div>
 </template>
 
 <script setup>
 import { onMounted, ref } from "vue";
 import { useCounterStore } from "../stores/counter";
 import NavBar from "../components/NavBar.vue";
+import NewNav from "../components/NewNav.vue";
 import BackHome from "../components/BackHome.vue"
 
 const store = useCounterStore()

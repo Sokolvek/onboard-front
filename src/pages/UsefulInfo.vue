@@ -1,23 +1,26 @@
 <template>
-    <section class="container">
-        <header class="header">
-            <div class="header-title">
-                <img src="../assets/imgs/useful-icon.svg" alt="">
-                <div>
-                    <h2>Useful Info</h2>
-                    <p>Important things to keep in mind.</p>
+    <div>
+        <NewNav />
+        <section class="container">
+            <header class="header">
+                <div class="header-title">
+                    <img src="../assets/imgs/useful-icon.svg" alt="">
+                    <div>
+                        <h2>Useful Info</h2>
+                        <p>Important things to keep in mind.</p>
+                    </div>
+                </div>
+                <!-- <NavBar /> -->
+            </header>
+            <div class="tips" v-if="tips.content">
+                <div class="tip" v-for="(tip,i) in tips.content.split('\n')" :key="i">
+                    <img src="../assets/imgs/dot-icon.svg" alt="">
+                    <span>{{ tip }}</span>
                 </div>
             </div>
-            <!-- <NavBar /> -->
-        </header>
-        <div class="tips" v-if="tips.content">
-            <div class="tip" v-for="(tip,i) in tips.content.split('\n')" :key="i">
-                <img src="../assets/imgs/dot-icon.svg" alt="">
-                <span>{{ tip }}</span>
-            </div>
-        </div>
-        <BackHome />
-    </section>
+            <BackHome />
+        </section>
+    </div>
 </template>
 
 <script setup>
@@ -26,7 +29,7 @@ import { useCounterStore } from "../stores/counter";
 import NavBar from "../components/NavBar.vue";
 import BackHome from "../components/BackHome.vue"
 import Header from "../components/Header.vue";
-
+import NewNav from "../components/NewNav.vue";
 const store = useCounterStore()
 const tips = ref({})
 const url = import.meta.env.VITE_BASE_URL

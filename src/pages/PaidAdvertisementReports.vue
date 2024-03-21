@@ -1,37 +1,41 @@
 <template>
-    <section class="container">
-        <header class="header">
-            <div class="header-title">
-                <img src="../assets/imgs/paid-icon.svg" alt="">
-                <div>
-                    <h2>Paid Advertisement Reports</h2>
-                    <p>Reports from the company to illustrate the impact of our cooperation.</p>
+    <div>
+        <NewNav/>
+        <section class="container">
+            <header class="header">
+                <div class="header-title">
+                    <img src="../assets/imgs/paid-icon.svg" alt="">
+                    <div>
+                        <h2>Paid Advertisement Reports</h2>
+                        <p>Reports from the company to illustrate the impact of our cooperation.</p>
+                    </div>
+                </div>
+                <!-- <NavBar /> -->
+            </header>
+            <div class="imgs-list" v-for="(image,i) in images.imageUrls" :key="i">
+                <div class="img-wrapper">
+                    <div>
+                        <p>
+                    {{ image.split("/")[image.split("/").length-1] }}
+                </p>
+                <button>
+                    <a :href="image" :download="image[0].split('/')[image[0].split('/').length-1]">
+                    download
+                </a>
+                </button>
+                    </div>
+                    <img :src="image" alt="">
+    
                 </div>
             </div>
-            <!-- <NavBar /> -->
-        </header>
-        <div class="imgs-list" v-for="(image,i) in images.imageUrls" :key="i">
-            <div class="img-wrapper">
-                <div>
-                    <p>
-                {{ image.split("/")[image.split("/").length-1] }}
-            </p>
-            <button>
-                <a :href="image" :download="image[0].split('/')[image[0].split('/').length-1]">
-                download
-            </a>
-            </button>
-                </div>
-                <img :src="image" alt="">
-
-            </div>
-        </div>
-       
-        <BackHome />
-    </section>
+           
+            <BackHome />
+        </section>
+    </div>
 </template>
 
 <script setup>
+import NewNav from '../components/NewNav.vue';
 import { onMounted, ref } from 'vue';
 import { useCounterStore } from '../stores/counter';
 import NavBar from '../components/NavBar.vue';

@@ -1,27 +1,34 @@
 <script setup>
-import {onMounted} from 'vue';
+import {onMounted, ref} from 'vue';
 import Navigation from './components/Navigation.vue';
 import {useCounterStore} from './stores/counter';
 import {useRouter, useRoute} from 'vue-router';
 import BackHome from "./components/BackHome.vue"
 import NewNav from './components/NewNav.vue';
-
+import { watch } from 'vue';
 const store = useCounterStore()
 const router = useRouter()
 const route = useRoute()
+
 onMounted(() => {
   if (store.getCookieJwt() == null) {
     router.push("/")
   } else {
     store.jwt = store.getCookieJwt()[1]
   }
-  console.log(route.path)
+  function checkOnRoutes(){
+    if(route.path.split("/")[1] == "admin"){
+      console.log("admin")
+    }
+    console.log(route.path)
+  }
+  // checkOnRoutes()
 })
 </script>
 
 <template>
   <div>
-    <NewNav v-if="route.path != '/login' && route.path != '/signup'"/>
+
     <Navigation/>
     <router-view v-slot="{ Component }">
       <transition name="fade" mode="out-in">
