@@ -5,7 +5,7 @@
     <section class="container">
       <header class="header">
         <div class="header-title">
-          <img src="../assets/imgs/meeting-icon.svg" alt="" />
+          <img src="../assets/imgs/quiz.svg" alt="" />
           <div>
             <h2>OnBoarding</h2>
             <p>on board quiz</p>

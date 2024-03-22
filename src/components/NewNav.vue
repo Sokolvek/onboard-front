@@ -17,7 +17,7 @@ import {ref} from "vue"
 const router = useRouter()
 const store = useCounterStore()
 
-import onBoard from "../assets/imgs/onboard-icon.svg"
+import onBoard from "../assets/imgs/quiz.svg"
 import mediaAssets from "../assets/imgs/media-assets-icon.svg"
 import reports from "../assets/imgs/paid-icon.svg"
 import notes from "../assets/imgs/meeting-icon.svg"
