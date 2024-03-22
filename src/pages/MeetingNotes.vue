@@ -118,6 +118,7 @@ ul {
 }
 
 li {
+    transition: 0.5s;
   display: flex;
   width: 100%;
     animation: appear 1.5s;
@@ -159,6 +160,10 @@ li > header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+}
+
+li:hover{
+    transform: translateX(50px);
 }
 
 .note-text {
