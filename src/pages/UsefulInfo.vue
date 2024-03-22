@@ -16,6 +16,7 @@
                 <div class="tip" v-for="(tip,i) in tips.content.split('\n')" :key="i">
                     <img src="../assets/imgs/dot-icon.svg" alt="">
                     <span>{{ tip }}</span>
+                    {{ tips.content }}
                 </div>
             </div>
             <BackHome />
