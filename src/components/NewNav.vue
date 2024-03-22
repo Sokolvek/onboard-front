@@ -44,9 +44,9 @@ function goToPage(name, index){
 
 .popup{
     position: fixed;
-    top: 40%;
+    top: 30%;
     right: 0;
-    
+
     background: rgba(255, 255, 255, 0);
     z-index: 100;
    
@@ -79,6 +79,7 @@ function goToPage(name, index){
     border-bottom-left-radius: 8px;
     border-top-left-radius: 8px;
     background: white;
+    padding-right: 30px;
 }
 
 .popup-item:hover {
@@ -89,7 +90,7 @@ function goToPage(name, index){
 .popup-item > img{
     width: 45px;
     max-height: 50px;
-    padding: 10px;
+    padding: 10px 30px 10px 10px;
 }
 
 .popup-item > p{
