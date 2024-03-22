@@ -42,7 +42,7 @@ import NavBar from '../components/NavBar.vue';
 import {useToast} from 'vue-toast-notification';
 import BackHome from "../components/BackHome.vue"
 const $toast = useToast();
-const canDownload = true
+let canDownload = true
 const images = ref({})
 const store = useCounterStore()
 const url = import.meta.env.VITE_BASE_URL
