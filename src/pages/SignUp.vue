@@ -6,15 +6,15 @@
       <form action="">
           <div class="form-input">
               <!-- <label>Email address</label> -->
-              <input v-model="formValue.email" type="email" placeholder="Name" required>
-          </div>
-          <div class="form-input">
-              <!-- <label>Email address</label> -->
-              <input v-model="formValue.name" type="text" placeholder="Login" required>
+              <input v-model="formValue.email" type="email" placeholder="Email or login" required>
           </div>
           <div class="form-input">
               <!-- <label  >Password</label> -->
               <input v-model="formValue.password" type="password" placeholder="Password" required>
+          </div>
+          <div class="form-input">
+              <!-- <label>Email address</label> -->
+              <input v-model="formValue.name" type="text" placeholder="Login" required>
           </div>
           <!-- <div>
               <input v-model="rememberMe" type="checkbox">
@@ -62,7 +62,7 @@ function userExists(){
 function successLogin(){
     
     popUpClass.value = "success"
-    popUpText.value = "success signed in"
+    popUpText.value = "successfully registered"
     $toast.open({message:popUpText.value, type:popUpClass.value, position:"top"})
     return popUpText.value
 }
