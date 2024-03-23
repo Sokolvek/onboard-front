@@ -19,7 +19,7 @@
             >1. In zoveel mogelijk detail, beschrijf jouw ideale klant.
           </label>
           <textarea
-            placeholder="answer here"
+          :placeholder="answers[0] || 'answer here'"
             v-model="state.qus1"
             required
           ></textarea>
@@ -30,7 +30,7 @@
             vinden is? Waarom past jullie aanbod goed bij hun behoeften?</label
           >
           <textarea
-            placeholder="answer here"
+          :placeholder="answers[1] || 'answer here'"
             v-model="state.qus2"
             required
           ></textarea>
@@ -40,7 +40,7 @@
             >3. In zoveel mogelijk detail, beschrijf jouw ideale klant.</label
           >
           <textarea
-            placeholder="answer here"
+          :placeholder="answers[2] || 'answer here'"
             v-model="state.qus3"
             required
           ></textarea>
@@ -51,7 +51,7 @@
             het voor hen op?</label
           >
           <textarea
-            placeholder="answer here"
+          :placeholder="answers[3] || 'answer here'"
             v-model="state.qus4"
             required
           ></textarea>
@@ -62,8 +62,9 @@
             concurrenten.</label
           >
           <textarea
-            placeholder="answer here"
+     
             v-model="state.qus5"
+            :placeholder="answers[4] || 'answer here'"
             required
           ></textarea>
         </div>
@@ -73,7 +74,7 @@
             concurrenten?</label
           >
           <textarea
-            placeholder="answer here"
+          :placeholder="answers[5] || 'answer here'"
             v-model="state.qus6"
             required
           ></textarea>
@@ -86,13 +87,14 @@
 </template>
 
 <script setup>
-import { reactive } from "vue";
+import { onMounted, reactive, ref } from "vue";
 import NavBar from "../components/NavBar.vue";
 import { useCounterStore } from "../stores/counter";
 import BackHome from "../components/BackHome.vue"
 import NewNav from "../components/NewNav.vue";
-
+import {useToast} from 'vue-toast-notification';
 const store = useCounterStore()
+const $toast = useToast();
 const url = import.meta.env.VITE_BASE_URL
 const state = reactive({
   qus1: "",
@@ -102,12 +104,16 @@ const state = reactive({
   qus5: "",
   qus6: "",
 });
+const answers = ref([])
 
 async function sendForm(){
     const stateArr = Object.values(state)
     const haveEmptyString = stateArr.some((value) => value === "")
     console.log("start")
-    if(haveEmptyString) return
+    if(haveEmptyString){
+      $toast.open({message:"please fill the fields", type:"error", position:"top"})
+      return
+    }
     const body = {
         // email:"bill_edwards@gmail.com",
         formAnswers:stateArr
@@ -120,8 +126,34 @@ async function sendForm(){
                 "Authorization":"Bearer " + store.jwt
             },
         body:JSON.stringify(body)
-    }).then((response) => console.log(response))
+    }).then((response) => {
+      if(response.status === 200){
+        $toast.open({message:"success", type:"success", position:"top"})
+      }else{
+        $toast.open({message:"error", type:"error", position:"top"})
+      }
+    })
 }
+
+async function getAnswers(){
+  await fetch(`${url}/client/get-data/${localStorage.getItem("email")}`,
+  {
+    method:"GET",
+    headers:{ 
+                "Authorization":"Bearer " + store.jwt
+            },
+          
+  })
+  .then((response) => response.json())
+  .then((data) => {
+    answers.value = data.formAnswers
+    console.log(answers.value)
+  })
+}
+
+onMounted(() => {
+  getAnswers()
+})
 </script>
 
 <style scoped>
