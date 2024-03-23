@@ -130,6 +130,7 @@ async function loadImage(){
 
 .img-preview > img{
     max-width: 100%;
+    max-height: 100%;
     width: fit-content;
     height: fit-content;
 }
