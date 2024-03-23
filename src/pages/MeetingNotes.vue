@@ -124,6 +124,7 @@ ul {
     flex-wrap: wrap;
     gap: 20px;
     margin-top: 40px;
+    margin-left: 40px;
 }
 
 li {
