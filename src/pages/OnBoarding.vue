@@ -16,7 +16,7 @@
       <form action="">
         <div class="input">
           <label for=""
-            >1. In zoveel mogelijk detail, beschrijf jouw ideale klant
+            >1. In zoveel mogelijk detail, beschrijf jouw ideale klant.
           </label>
           <textarea
             placeholder="answer here"
@@ -27,7 +27,7 @@
         <div class="input">
           <label for=""
             >2. Zjin er bepaadle sectoren waarin jullie idea3le klant vaak te
-            vinden is? Waarom past jullie aanbod goed bij hun behoeften</label
+            vinden is? Waarom past jullie aanbod goed bij hun behoeften?</label
           >
           <textarea
             placeholder="answer here"
@@ -37,7 +37,7 @@
         </div>
         <div class="input">
           <label for=""
-            >3. In zoveel mogelijk detail, beschrijf jouw ideale klant</label
+            >3. In zoveel mogelijk detail, beschrijf jouw ideale klant.</label
           >
           <textarea
             placeholder="answer here"
@@ -48,7 +48,7 @@
         <div class="input">
           <label for=""
             >4. Waarom maken uw klanten gebruik van uw dienst? Welk probleem lost
-            het voor hen op</label
+            het voor hen op?</label
           >
           <textarea
             placeholder="answer here"
@@ -59,7 +59,7 @@
         <div class="input">
           <label for=""
             >5. Geef alsjeblieft een lijst van enkele van jouw meest significante
-            concurrenten</label
+            concurrenten.</label
           >
           <textarea
             placeholder="answer here"
@@ -70,7 +70,7 @@
         <div class="input">
           <label for=""
             >6. Waarom kiezen klanten voor uw bedrijf in plaats van voor uw
-            concurrenten</label
+            concurrenten?</label
           >
           <textarea
             placeholder="answer here"

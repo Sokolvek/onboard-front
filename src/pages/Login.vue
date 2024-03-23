@@ -8,7 +8,7 @@
                 <h2>Sign in</h2>
                 <form action="">
                     <div class="form-input">
-                        <input v-model="state.email" type="email" placeholder="enter email" required>
+                        <input v-model="state.email" type="email" placeholder="enter email or login" required>
                     </div>
                     <div class="form-input">
                         <input v-model="state.password" type="password" placeholder="enter password" required>
@@ -84,7 +84,7 @@ async function login(){
 
     if(!state.email || !state.password){
         popUpClass.value = "error"
-        $toast.open({message:"please enter password or email", type:popUpClass.value, position:"top"})
+        $toast.open({message:"please enter email or login", type:popUpClass.value, position:"top"})
         return
     }
 

@@ -7,8 +7,9 @@
             <div class="profile-block">
                 <img src="../assets/imgs/profileAvatar.svg" alt="">
                 <h2>Good Day, dear {{userData.fullName}}! 👋</h2>
-                <p>Welcome! Using this page toy can access all required tools needed for onboarding. You can also<br />
-                    access any notes from our meetings together and even access a record of advertissing reports.</p>
+                <p>Welcome! By using the menu on the right, you can access all the tools to help you with onboarding.<br />
+                    They include a quiz to provide you with a more effective targetting, a page with reports<br />
+                    on paid advertisement, and pages with all the notes from our meetings!</p>
             </div>
             <div class="roadmap">
                 <h3>The Roadmap</h3>
