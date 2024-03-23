@@ -14,7 +14,7 @@
           </div>
           <div class="form-input">
               <!-- <label>Email address</label> -->
-              <input v-model="formValue.name" type="text" placeholder="Login" required>
+              <input v-model="formValue.name" type="text" placeholder="Name" required>
           </div>
           <!-- <div>
               <input v-model="rememberMe" type="checkbox">
