@@ -29,7 +29,7 @@
                 </div>
             </div>
            
-            <BackHome />
+            <!-- <BackHome /> -->
         </section>
     </div>
 </template>

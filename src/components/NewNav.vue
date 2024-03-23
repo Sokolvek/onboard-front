@@ -17,6 +17,8 @@ import {ref} from "vue"
 const router = useRouter()
 const store = useCounterStore()
 
+
+import profile from "../assets/imgs/onboard-icon.svg"
 import onBoard from "../assets/imgs/quiz.svg"
 import mediaAssets from "../assets/imgs/media-assets-icon.svg"
 import reports from "../assets/imgs/paid-icon.svg"
@@ -25,6 +27,7 @@ import info from "../assets/imgs/useful-icon.svg"
 import contact from "../assets/imgs/contact-icon.svg"
 
 const items = [
+                { name: 'profile', icon: profile, title: 'Profile'},
                 { name: 'onboarding', icon: onBoard, title: 'Onboarding' },
                 { name: 'media-assets', icon: mediaAssets, title: 'Media Assets' },
                 { name: 'paid-advertising-reports', icon: reports, title: 'Paid Advertising Reports' },

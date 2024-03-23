@@ -7,7 +7,7 @@
                     <h2>{{ noteData.header }}</h2>
                 </div>
             </div>
-            <BackHome />
+            <!-- <BackHome /> -->
         </header>
         <div class="tips" v-if="noteContent">
             <img src="../assets/imgs/dot-icon.svg" alt="">

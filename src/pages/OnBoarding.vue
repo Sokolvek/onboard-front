@@ -80,7 +80,7 @@
         </div>
         <button @click.prevent="sendForm" class="button">Send</button>
       </form>
-      <BackHome />
+      <!-- <BackHome /> -->
     </section>
   </div>
 </template>

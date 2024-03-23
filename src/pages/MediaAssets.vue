@@ -17,7 +17,7 @@
         </li>
       </ul>
       <MediaPopup @close-popup="popup = false" />
-      <BackHome />
+      <!-- <BackHome /> -->
     </section>
 
   </div>
