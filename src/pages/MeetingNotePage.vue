@@ -1,26 +1,33 @@
 <template>
-    <section class="container">
-        <header class="header">
-            <div class="header-title">
-                <img src="../assets/imgs/meeting-icon.svg" alt="">
-                <div v-if="noteData">
-                    <h2>{{ noteData.header }}</h2>
+    <div>
+        <NewNav/>
+        <section class="container">
+            <header class="header">
+                <div class="header-title">
+                    <img src="../assets/imgs/meeting-icon.svg" alt="">
+                    <div v-if="noteData">
+                        <h2>{{ noteData.header }}</h2>
+                    </div>
+                </div>
+                <!-- <BackHome /> -->
+            </header>
+            <div class="tips" v-if="noteContent">
+                <div class="tip" v-for="(tip,i) in noteContent.split('\n')" :key="i">
+                    <img src="../assets/imgs/dot-icon.svg" alt="">
+                    <span>{{ tip }}</span>
                 </div>
             </div>
-            <!-- <BackHome /> -->
-        </header>
-        <div class="tips" v-if="noteContent">
-            <img src="../assets/imgs/dot-icon.svg" alt="">
-            <span>{{ noteContent }}</span>
+        </section>
     </div>
-    </section>
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router';
-import { onMounted, ref } from 'vue';
-import { useCounterStore } from '../stores/counter';
+import {useRoute} from 'vue-router';
+import {onMounted, ref} from 'vue';
+import {useCounterStore} from '../stores/counter';
 import BackHome from '../components/BackHome.vue';
+import NewNav from "../components/NewNav.vue";
+
 const route = useRoute()
 const store = useCounterStore()
 
@@ -29,18 +36,19 @@ const noteId = route.params.id
 const noteData = ref({})
 const noteContent = ref()
 
-async function getNoteById(){
-    await fetch(`${url}/note/meeting-notes/${localStorage.getItem("email")}/${noteId}`,{
-        method:"GET",
-        headers:{
-            "Authorization":"Bearer " + store.jwt
+async function getNoteById() {
+    await fetch(`${url}/note/meeting-notes/${localStorage.getItem("email")}/${noteId}`, {
+        method: "GET",
+        headers: {
+            "Authorization": "Bearer " + store.jwt
         },
     }).then((response) => response.json())
-    .then((data) => {
-        noteData.value = data.meetingNote
-        noteContent.value = noteData.value.content
-    })
+        .then((data) => {
+            noteData.value = data.meetingNote
+            noteContent.value = noteData.value.content
+        })
 }
+
 onMounted(() => {
     console.log(route.params)
     getNoteById()
@@ -49,11 +57,11 @@ onMounted(() => {
 
 <style scoped>
 
-section{
+section {
     margin-top: 100px;
 }
 
-.header{
+.header {
     display: flex;
     gap: 20px;
     justify-content: space-between;
@@ -61,24 +69,24 @@ section{
 
 }
 
-.header-title{
+.header-title {
     display: flex;
     gap: 20px;
 
 }
 
-.header-title > img{
+.header-title > img {
     width: 50px;
 }
 
-.header-title > div > h2{
+.header-title > div > h2 {
     color: #0d6efd;
     font-size: 50px;
 }
 
 .tips{
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 10px;
     margin-top: 40px;
     margin-left: 40px;

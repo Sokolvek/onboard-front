@@ -6,7 +6,7 @@
             <!-- <NavBar class="profile-nav" /> -->
             <div class="profile-block">
                 <img src="../assets/imgs/profileAvatar.svg" alt="">
-                <h2>Good Day, dear {{userData.fullName}}!</h2>
+                <h2>Good Day, dear {{userData.fullName}}! 👋</h2>
                 <p>Welcome! Using this page toy can access all required tools needed for onboarding. You can also<br />
                     access any notes from our meetings together and even access a record of advertissing reports.</p>
             </div>

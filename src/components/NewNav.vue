@@ -27,7 +27,7 @@ import info from "../assets/imgs/useful-icon.svg"
 import contact from "../assets/imgs/contact-icon.svg"
 
 const items = [
-                { name: 'profile', icon: profile, title: 'Profile'},
+                { name: '', icon: profile, title: 'Profile'},
                 { name: 'onboarding', icon: onBoard, title: 'Onboarding' },
                 { name: 'media-assets', icon: mediaAssets, title: 'Media Assets' },
                 { name: 'paid-advertising-reports', icon: reports, title: 'Paid Advertising Reports' },

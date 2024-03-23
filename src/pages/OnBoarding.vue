@@ -7,8 +7,8 @@
         <div class="header-title">
           <img src="../assets/imgs/quiz.svg" alt="" />
           <div>
-            <h2>OnBoarding</h2>
-            <p>on board quiz</p>
+            <h2>Onboarding</h2>
+            <p>Answer these questions for personalizing your customer experience.</p>
           </div>
         </div>
         <!-- <NavBar /> -->
