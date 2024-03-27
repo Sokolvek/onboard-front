@@ -1,180 +1,262 @@
 <template>
-    <div>
-        <NewNav/>
-        <section class="container">
-            <header class="header">
-                <div class="header-title">
-                    <img src="../assets/imgs/paid-icon.svg" alt="">
-                    <div>
-                        <h2>Paid Advertisement Reports</h2>
-                        <p>Reports from the company to illustrate the impact of our cooperation.</p>
-                    </div>
-                </div>
-                <button @click="downloadAllMedia">download all reports</button>
-            </header>
-            <div class="imgs-list" v-for="(image,i) in images.imageUrls" :key="i">
-                <div class="img-wrapper">
-                    <div>
-                        <p>
-                    {{ image.split("/")[image.split("/").length-1] }}
-                </p>
-                <button>
-                    <a :href="image" :download="image[0].split('/')[image[0].split('/').length-1]">
-                    download
-                </a>
-                </button>
-                    </div>
-                    <img :src="image" alt="">
-    
-                </div>
+  <div>
+    <NewNav />
+    <section class="container">
+      <header class="header">
+        <div class="header-title">
+          <img src="../assets/imgs/paid-icon.svg" alt="" />
+          <div>
+            <h2>Paid Advertisement Reports</h2>
+            <p>
+              Reports from the company to illustrate the impact of our
+              cooperation.
+            </p>
+          </div>
+        </div>
+        <button @click="downloadAllMedia">
+          <img src="../assets/imgs/download-icon.svg" alt="">
+          download all reports</button>
+      </header>
+      <div class="imgs-list" v-for="(report, i) in images.reports" :key="i">
+
+        <div class="report-wrapper">
+          <div>
+            <ReportsSlider :imgs="report.imageUrls"/>
+            
+          </div>
+          <div class="report-middle">
+            <p class="report-name">
+                {{ report.reportData.name }}
+            <!-- {{ image.imageUrls[5].split("/")[image.imageUrls[5].split("/").length - 1] }} -->
+          </p>
+            <button @click="downloadReport(report.imageUrls)" class="download-report">
+                 <img src="../assets/imgs/download-icon.svg" alt="">
+                Download Report
+            </button>
+          </div>
+          <footer>
+            <div>
+                <p>Total weight</p>
+                <span>{{ report.sizeKb }}</span>
             </div>
-           
-            <!-- <BackHome /> -->
-        </section>
-    </div>
+            <div>
+                <p>Created</p>
+                <span>{{ report.reportData.date }}</span>
+            </div>
+          </footer>
+        
+        </div>
+      </div>
+
+      <!-- <BackHome /> -->
+    </section>
+  </div>
 </template>
 
 <script setup>
-import NewNav from '../components/NewNav.vue';
-import { onMounted, ref } from 'vue';
-import { useCounterStore } from '../stores/counter';
-import NavBar from '../components/NavBar.vue';
-import {useToast} from 'vue-toast-notification';
-import BackHome from "../components/BackHome.vue"
+import NewNav from "../components/NewNav.vue";
+import ReportsSlider from "../components/ReportsSlider.vue";
+import { onMounted, ref } from "vue";
+import { useCounterStore } from "../stores/counter";
+import NavBar from "../components/NavBar.vue";
+import { useToast } from "vue-toast-notification";
+import BackHome from "../components/BackHome.vue";
 const $toast = useToast();
-let canDownload = true
-const images = ref({})
-const store = useCounterStore()
-const url = import.meta.env.VITE_BASE_URL
+let canDownload = true;
+const images = ref({});
+const store = useCounterStore();
+const url = import.meta.env.VITE_BASE_URL;
 
-async function getImages(){
-    await fetch(`${url}/image/paid-advertising-reports/${localStorage.getItem("email")}`,
+
+function downloadReport(reportId) {
+
+}
+
+async function getImages() {
+  await fetch(
+    `${url}/report/${localStorage.getItem("email")}`,
     {
-        method:"GET",
-        headers:{
-            "Authorization":"Bearer " + store.jwt
-        },
-    }).then((response) => response.json())
+      method: "GET",
+      mode:"cors",
+      headers: {
+        Authorization: "Bearer " + store.jwt,
+      },
+    }
+  )
+    .then((response) => response.json())
     .then((data) => {
-        console.log(data)
-        images.value = data})
+      console.log(data.reports);
+      images.value = data;
+    });
 }
 
 async function downloadAllMedia() {
-    await fetch(`${url}/image/paid-advertising-reports/zipped/${localStorage.getItem("email")}`, {
-        method: "GET",
-        headers: { 
-            "Authorization": "Bearer " + store.jwt
-        },
-    }).then((response) => {
-        if(response.status == 200){
-            $toast.open({message:"success", type:"success", position:"top"})
-        }else{
-            $toast.open({message:"error caused", type:"error", position:"top"})
-            canDownload = false
-        }
-        return response.blob();
-    }).then((blob) => {
-        if(!canDownload) return
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'reports.zip';
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
+  await fetch(
+    `${url}/image/paid-advertising-reports/zipped/${localStorage.getItem(
+      "email"
+    )}`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + store.jwt,
+      },
+    }
+  )
+    .then((response) => {
+      if (response.status == 200) {
+        $toast.open({ message: "success", type: "success", position: "top" });
+      } else {
+        $toast.open({
+          message: "error caused",
+          type: "error",
+          position: "top",
+        });
+        canDownload = false;
+      }
+      return response.blob();
     })
+    .then((blob) => {
+      if (!canDownload) return;
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "reports.zip";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    });
 }
 
 onMounted(() => {
-    getImages()
-})
+  getImages();
+});
 </script>
 
 <style scoped>
-section{
-    margin-top: 100px;
+section {
+  margin-top: 100px;
 }
 
-
-.header{
-    display: flex;
-    gap: 20px;
-    justify-content: space-between;
-    align-items: center;
-    
+.header {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.header-title{
-    display: flex;
-    gap: 20px;
-   
+.header-title {
+  display: flex;
+  gap: 20px;
 }
 
-.header-title > img{
-    width: 60px;
+.header-title > img {
+  width: 60px;
 }
 
-.header-title > div > h2{
-    color: #0d6efd;
-    font-size: 50px;
+.header-title > div > h2 {
+  color: #0d6efd;
+  font-size: 50px;
 }
 
-.header-title > div > h2{
-    color: #0d6efd;
+.header-title > div > h2 {
+  color: #0d6efd;
 }
 
-.imgs-list{
-    margin-top: 100px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
+.imgs-list {
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
 }
 
-.img-wrapper{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 20px;
-    border-radius: 6px;
+.report-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  border-radius: 6px;
 }
 
-.img-wrapper >img{
-    max-width: 100px;
-    max-height: 50px;
+.report-middle{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 98%;
+  border-top: 2px solid #0d6efd;
+  border-bottom: 2px solid #0d6efd;
 }
 
-.img-wrapper > div{
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.report-wrapper > img {
+  max-width: 100px;
+  max-height: 50px;
 }
 
-.img-wrapper > div > p{
-    color: #0d6efd;
-    text-decoration: none;
+.report-wrapper > div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.img-wrapper > div > button{
-    background: #0d6efd;
-    border: none;
-    padding: 10px 5px;
-    border-radius: 6px;
+.img-wrapper > div > p {
+  color: #0d6efd;
+  text-decoration: none;
 }
 
-.img-wrapper > div > button > a{
-    color: white;
-    text-decoration: none;
+.img-wrapper > div > button {
+  background: #0d6efd;
+  border: none;
+  padding: 10px 5px;
+  border-radius: 6px;
 }
 
-button{
-    padding: 0.375rem 0.75rem;
-    border: none;
-    border-radius: 3px;
-    color: white;
-    background-color: #0d6efd;
-    font-size: 18px;
+.img-wrapper > div > button > a {
+  color: white;
+  text-decoration: none;
 }
 
+footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  height: 98%;
+  gap: 20px;
+  border: 2px solid #0d6efd;
+  border-left: none;
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+footer > div{
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.report-name{
+  font-size: 20px;
+  color: #3873E9;
+  align-self: baseline;
+  margin-left: 20px;
+}
+
+.download-report{
+  width: 90%;
+  justify-content: center;
+}
+
+button {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  gap: 10px;
+  padding: 0.375rem 0.75rem;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  background-color: #3873E9;
+  font-size: 18px;
+}
 </style>

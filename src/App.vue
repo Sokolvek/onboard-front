@@ -5,6 +5,7 @@ import {useCounterStore} from './stores/counter';
 import {useRouter, useRoute} from 'vue-router';
 import BackHome from "./components/BackHome.vue"
 import NewNav from './components/NewNav.vue';
+import ReportPopup from './components/ReportPopup.vue';
 import { watch } from 'vue';
 const store = useCounterStore()
 const router = useRouter()
@@ -28,7 +29,7 @@ onMounted(() => {
 
 <template>
   <div>
-
+    <ReportPopup />
     <Navigation/>
     <router-view v-slot="{ Component }">
       <transition name="fade" mode="out-in">
