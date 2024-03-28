@@ -27,9 +27,10 @@
           <div class="report-middle">
             <p class="report-name">
                 {{ report.reportData.name }}
+                {{report.reportId}}
             <!-- {{ image.imageUrls[5].split("/")[image.imageUrls[5].split("/").length - 1] }} -->
           </p>
-            <button @click="downloadReport(report.imageUrls)" class="download-report">
+            <button @click="downloadReport(report.reportId)" class="download-report">
                  <img src="../assets/imgs/download-icon.svg" alt="">
                 Download Report
             </button>
@@ -68,9 +69,38 @@ const store = useCounterStore();
 const url = import.meta.env.VITE_BASE_URL;
 
 
-function downloadReport(reportId) {
-
-}
+async function downloadReport(reportId) {
+  await fetch(`${url}/report/zipped/${localStorage.getItem("email")}/${reportId}`,
+  {
+    method:"GET",
+    headers:{
+      Authorization: "Bearer " + store.jwt
+    }
+  }).then((response) => {
+    if (response.status == 200) {
+        $toast.open({ message: "success", type: "success", position: "top" });
+      } else {
+        $toast.open({
+          message: "error caused",
+          type: "error",
+          position: "top",
+        });
+        canDownload = false;
+      }
+      return response.blob();
+  })
+  .then((blob) =>{
+    if(!canDownload) return
+    const url = window.URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "report.zip";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      canDownload = true
+  })
+} 
 
 async function getImages() {
   await fetch(
@@ -235,6 +265,10 @@ footer > div{
   padding: 20px;
 }
 
+footer > div > p,span{
+  color: #3873E9;
+}
+
 .report-name{
   font-size: 20px;
   color: #3873E9;
@@ -245,6 +279,7 @@ footer > div{
 .download-report{
   width: 90%;
   justify-content: center;
+  padding: 10px;
 }
 
 button {
