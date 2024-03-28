@@ -13,41 +13,44 @@
             </p>
           </div>
         </div>
-        <button @click="downloadAllMedia">
+        <!-- <button @click="downloadAllMedia">
           <img src="../assets/imgs/download-icon.svg" alt="">
-          download all reports</button>
+          download all reports</button> -->
       </header>
-      <div class="imgs-list" v-for="(report, i) in images.reports" :key="i">
+      <ul class="imgs-list">
+        <li class="imgs-item" v-for="(report, i) in images.reports" :key="i">
+  
+          <div class="report-wrapper">
+            <div>
+              <ReportsSlider :imgs="report.imageUrls"/>
+              
+            </div>
+            <div class="report-middle">
+              <p class="report-name">
+                  {{ report.reportData.name }}
+                  {{report.reportId}}
+              <!-- {{ image.imageUrls[5].split("/")[image.imageUrls[5].split("/").length - 1] }} -->
+            </p>
+              <button @click="downloadReport(report.reportId)" class="download-report">
+                   <img src="../assets/imgs/download-icon.svg" alt="">
+                  Download Report
+              </button>
+            </div>
+            <footer>
+              <div>
+                  <p>Total weight Kb</p>
+                  <span>{{ report.sizeKb }}</span>
+              </div>
+              <div>
+                  <p>Created</p>
+                  <span>{{ report.reportData.date }}</span>
+              </div>
+            </footer>
+          
+          </div>
+        </li>
 
-        <div class="report-wrapper">
-          <div>
-            <ReportsSlider :imgs="report.imageUrls"/>
-            
-          </div>
-          <div class="report-middle">
-            <p class="report-name">
-                {{ report.reportData.name }}
-                {{report.reportId}}
-            <!-- {{ image.imageUrls[5].split("/")[image.imageUrls[5].split("/").length - 1] }} -->
-          </p>
-            <button @click="downloadReport(report.reportId)" class="download-report">
-                 <img src="../assets/imgs/download-icon.svg" alt="">
-                Download Report
-            </button>
-          </div>
-          <footer>
-            <div>
-                <p>Total weight</p>
-                <span>{{ report.sizeKb }}</span>
-            </div>
-            <div>
-                <p>Created</p>
-                <span>{{ report.reportData.date }}</span>
-            </div>
-          </footer>
-        
-        </div>
-      </div>
+      </ul>
 
       <!-- <BackHome /> -->
     </section>
@@ -192,8 +195,12 @@ section {
   color: #0d6efd;
 }
 
-.imgs-list {
+.imgs-list{
   margin-top: 100px;
+}
+
+.imgs-item {
+  
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
@@ -252,17 +259,18 @@ footer{
   justify-content: center;
   width: 50%;
   height: 98%;
-  gap: 20px;
   border: 2px solid #0d6efd;
   border-left: none;
   border-bottom-right-radius: 8px;
   border-top-right-radius: 8px;
+  /* padding-bottom: 20px; */
 }
 
 footer > div{
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  padding-right: 20px;
+  margin-bottom: 20px;
 }
 
 footer > div > p,span{

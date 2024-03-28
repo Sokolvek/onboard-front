@@ -1,6 +1,6 @@
 <template>
     <div class="report-slider">
-        <div class="slide-counter">
+        <!-- <div class="slide-counter">
             <span>{{ imgIndex+1 }}/{{ props.imgs.length }}</span>
         </div>
         <div class="arrow left-arrow" @click="prev()">
@@ -8,7 +8,7 @@
         </div>
         <div class="arrow right-arrow" @click="next()">
             <img src="../assets/imgs/arrow-icon.svg" alt="">
-        </div>
+        </div> -->
         <div class="report-img-wrapper" v-for="(image,i) in props.imgs" :key="i">
             <img class="report-img" @click="openImage(image)" v-if="i === imgIndex" :src="image" alt="">
         </div>
@@ -77,6 +77,7 @@ onMounted(() => {
     border-bottom-left-radius: 10px;
     width: 20%;
     height: 100%;
+    pointer-events: none;
 }
 
 .report-img-wrapper::after{
@@ -88,6 +89,7 @@ onMounted(() => {
     background: linear-gradient(90deg, rgba(56, 115, 233, 0) 0%, rgba(56, 115, 233, 0.8) 100%);
     width: 20%;
     height: 100%;
+    pointer-events: none;
 }
 
 .report-img-wrapper > img{
