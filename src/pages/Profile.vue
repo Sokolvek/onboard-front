@@ -196,12 +196,14 @@ h3 {
 .roadmap-stages {
     display: flex;
     gap: 30px;
-    margin-top: 30px;
+    margin-top: 10px;
+    margin-left: 30px;
 }
 
 .roadmap-desc{
     position: relative;
-    margin-top: 30px;
+    margin-top: 20px;
+    margin-left: 50px;
 }
 
 .open-menu-btn{

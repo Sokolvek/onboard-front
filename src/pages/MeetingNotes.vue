@@ -122,7 +122,8 @@ section {
 ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    column-gap: 20px;
+    row-gap: 40px;
     margin-top: 40px;
     margin-left: 40px;
 }

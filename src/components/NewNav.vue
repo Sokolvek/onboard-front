@@ -1,10 +1,11 @@
 <template>
     <div class="popup">
         <ul class="popup-list">
-            <li v-for="(item,i) in items" :class="{active : i === store.navIndex}" class="popup-item" :key="i"  @click="goToPage(item.name, i)" >
-            <img :src="item.icon" alt="">
-            <p>{{ item.title }}</p>
-        </li>
+            <li v-for="(item,i) in items" :class="{active : i === store.navIndex}" class="popup-item" :key="i"
+                @click="goToPage(item.name, i)">
+                <img :src="item.icon" alt="">
+                <p>{{ item.title }}</p>
+            </li>
         </ul>
     </div>
 </template>
@@ -12,8 +13,9 @@
 
 <script setup>
 import {useRouter} from "vue-router"
-import { useCounterStore } from "../stores/counter";
+import {useCounterStore} from "../stores/counter";
 import {ref} from "vue"
+
 const router = useRouter()
 const store = useCounterStore()
 
@@ -27,35 +29,35 @@ import info from "../assets/imgs/useful-icon.svg"
 import contact from "../assets/imgs/contact-icon.svg"
 
 const items = [
-                { name: '', icon: profile, title: 'Profile'},
-                { name: 'onboarding', icon: onBoard, title: 'Onboarding' },
-                { name: 'media-assets', icon: mediaAssets, title: 'Media Assets' },
-                { name: 'paid-advertising-reports', icon: reports, title: 'Paid Advertising Reports' },
-                { name: 'meeting-notes', icon: notes, title: 'Meeting Notes' },
-                { name: 'useful-info', icon: info, title: 'Useful Info' },
-                { name: 'contacts-details', icon: contact, title: 'Client Contact Details' },
-            ]
+    {name: '', icon: profile, title: 'Profile'},
+    {name: 'onboarding', icon: onBoard, title: 'Onboarding'},
+    {name: 'meeting-notes', icon: notes, title: 'Meeting Notes'},
+    {name: 'media-assets', icon: mediaAssets, title: 'Media Assets'},
+    {name: 'paid-advertising-reports', icon: reports, title: 'Paid Advertising Reports'},
+    {name: 'useful-info', icon: info, title: 'Useful Info'},
+    {name: 'contacts-details', icon: contact, title: 'Client Contact Details'},
+]
 
-function goToPage(name, index){
+function goToPage(name, index) {
     router.push(`/${name}`)
-    
+
     store.navIndex = index
 }
 </script>
 
 <style scoped>
 
-.popup{
+.popup {
     position: fixed;
     top: 30%;
     right: 0;
 
     background: rgba(255, 255, 255, 0);
     z-index: 100;
-   
+
 }
 
-.popup-list{
+.popup-list {
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -70,11 +72,11 @@ function goToPage(name, index){
 
 }
 
-.popup-list:hover{
+.popup-list:hover {
     transform: translateX(0%);
 }
 
-.popup-item{
+.popup-item {
     transition: .2s;
     display: flex;
     align-items: center;
@@ -90,17 +92,17 @@ function goToPage(name, index){
     position: relative;
 }
 
-.popup-item > img{
+.popup-item > img {
     width: 45px;
     max-height: 50px;
     padding: 10px 30px 10px 10px;
 }
 
-.popup-item > p{
+.popup-item > p {
     color: #3873E9;
 }
 
-.popup-item.active{
+.popup-item.active {
     background: #ebf0fa;
 }
 </style>
