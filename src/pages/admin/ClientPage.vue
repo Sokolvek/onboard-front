@@ -28,6 +28,7 @@
             <AddMedia :email="route.params.email" />
         </form>
         <button @click="downloadAllMedia">download media assets</button>
+        <FormAnswers :answers="userData.formAnswers"/>
     </section>
 </template>
 
@@ -40,6 +41,7 @@ import AddNote from "../../components/admin/AddNote.vue"
 import ChangeUsefulNote from "../../components/admin/ChangeUsefulNote.vue"
 import ChangeContacts from "../../components/admin/ChangeContacts.vue"
 import AddMedia from "../../components/admin/AddMedia.vue"
+import FormAnswers from "../../components/admin/FormAnswers.vue";
 
 const store = useCounterStore()
 const url = import.meta.env.VITE_BASE_URL
@@ -63,7 +65,7 @@ async function getClientData(){
     .then((data) => {
         console.log(data)
         userData.value = data
-        // console.log(userData.value.contactDetailsContent)
+        console.log(userData.value)
         // userStages.value = [...data.onboardingStages]
         indexStage.value = data.activeStage
     })

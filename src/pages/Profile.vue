@@ -14,12 +14,16 @@
             <div class="roadmap">
                 <h3>The Roadmap</h3>
                 <div class="roadmap-stages">
-                    <button class="roadmap-btn" @click="index = i" :class="{ active: userData.activeStage-1 == i }" v-for="(btn, i) in data" :key="i">{{ i + 1
-                    }}</button>
+                    <div class="stage"  @click="index = i"  v-for="(btn, i) in images" :key="i">
+                    <img v-if="userData.activeStage == i+1" :src="btn.image" alt="">
+                
+                </div>
                 </div>
                 <div class="roadmap-desc">
-                    <TransitionGroup name="list" tag="div" mode="out-in">
+                    <TransitionGroup name="list" class="roadmap-desc-wrapper" tag="div" mode="out-in">
+                        <img src="../assets/imgs/dot-icon.svg" alt="">
                         <div v-if="userData.onboardingStages">{{ userData.onboardingStages[userData.activeStage-1] }}</div>
+
                     </TransitionGroup>
                 </div>
                 <!-- <button class="open-menu-btn" @click="store.navPopup = true">Open menu</button> -->
@@ -40,17 +44,21 @@ const store = useCounterStore()
 const index = ref(0)
 const url = import.meta.env.VITE_BASE_URL
 
+import firstStage from "../assets/imgs/first-stage.svg"
+import secondStage from "../assets/imgs/second-stage.svg"
+import thirdStage from "../assets/imgs/third-stage.svg"
+
 const userData = ref({})
 const userStages =  userData.onboardingStages
-const data = ref([
+const images = ref([
     {
-        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, odit modi. Quas repudiandae commodi quia delectus dignissimos alias! Eos, cupiditate laborum et aperiam facere culpa vel id obcaecati unde delectus?"
+        image: firstStage
     },
     {
-        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, odit modi. Quas repudiandae commodi quia delectus dignissimos alias! Eos, cupiditate laborum et aperiam facere culpa vel id obcaecati unde delectus?"
+        image: secondStage
     },
     {
-        text: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque, odit modi. Quas repudiandae commodi quia delectus dignissimos alias! Eos, cupiditate laborum et aperiam facere culpa vel id obcaecati unde delectus?"
+        image: thirdStage
     },
 ])
 
@@ -140,7 +148,12 @@ h3 {
     font-size: 2rem;
 }
 
+.stage{
+    transform: translateX(-30px)
+}
+
 .roadmap-btn {
+    position: relative;
     background: transparent;
     border: 2px solid #3873E9;
     outline: none;
@@ -152,9 +165,32 @@ h3 {
     transition: 0.5s;
 }
 
-.roadmap-btn.active {
+.roadmap-btn.stage {
     color: white;
     background: #3873E9;
+}
+
+.roadmap-btn.active::before,.roadmap-btn.active::after{
+    content:"";
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.roadmap-btn.active::before{
+    top: -35px;
+    left: -35px;
+    background-image: url("../assets/imgs/profile-star-before.webp");
+    width: 60px;
+    height: 60px;
+}
+
+.roadmap-btn.active::after{
+    right: -15px;
+    bottom: -15px;
+    background-image: url("../assets/imgs/profile-star-after.svg");
+    width: 25px;
+    height: 25px;
 }
 
 .roadmap-stages {
@@ -176,6 +212,12 @@ h3 {
     color: white;
     background-color: #0d6efd;
     font-size: 18px;
+}
+
+.roadmap-desc-wrapper{
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 /* .roadmap-text.active{

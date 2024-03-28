@@ -3,6 +3,7 @@
         <header>
             <h2>Add media</h2>
         </header>
+        <input type="text" placeholder="report title"  v-model="title">
         <input type="file" @change="onFileChange">
         <button @click.prevent="addMedia">add image</button>
     </div>
@@ -16,6 +17,7 @@ import 'vue-toast-notification/dist/theme-sugar.css';
 const $toast = useToast();
 const store = useCounterStore()
 const file = ref()
+const title = ref("")
 const url = import.meta.env.VITE_BASE_URL
 
 function onFileChange(e) {
@@ -38,7 +40,7 @@ async function addMedia(){
     const formData = new FormData()
     formData.append("clientEmail", props.email)
     formData.append("files", file.value[0])
-    formData.append("reportName", "testname")
+    formData.append("reportName", title.value)
     await fetch(`${url}/report/${props.email}`,
         {
             method:"PUT",
