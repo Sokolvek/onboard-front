@@ -28,21 +28,20 @@
             <div class="report-middle">
               <p class="report-name">
                   {{ report.reportData.name }}
-                  {{report.reportId}}
               <!-- {{ image.imageUrls[5].split("/")[image.imageUrls[5].split("/").length - 1] }} -->
             </p>
               <button @click="downloadReport(report.reportId)" class="download-report">
                    <img src="../assets/imgs/download-icon.svg" alt="">
-                  Download Report
+                   Rapport downloaden
               </button>
             </div>
             <footer>
               <div>
-                  <p>Total weight Kb</p>
+                  <p>Totaal gewicht Kb</p>
                   <span>{{ report.sizeKb }}</span>
               </div>
               <div>
-                  <p>Created</p>
+                  <p>Gemaakt</p>
                   <span>{{ report.reportData.date }}</span>
               </div>
             </footer>
@@ -50,34 +49,7 @@
           </div>
         </li>
 
-        <div class="report-wrapper">
-          <div>
-            <ReportsSlider :imgs="report.imageUrls"/>
-            
-          </div>
-          <div class="report-middle">
-            <p class="report-name">
-                {{ report.reportData.name }}
-                {{report.reportId}}
-            <!-- {{ image.imageUrls[5].split("/")[image.imageUrls[5].split("/").length - 1] }} -->
-          </p>
-            <button @click="downloadReport(report.reportId)" class="download-report">
-                 <img src="../assets/imgs/download-icon.svg" alt="">
-                 Rapport downloaden
-            </button>
-          </div>
-          <footer>
-            <div>
-                <p>Total weight</p>
-                <span>{{ report.sizeKb }}</span>
-            </div>
-            <div>
-                <p>Created</p>
-                <span>{{ report.reportData.date }}</span>
-            </div>
-          </footer>
-        
-        </div>
+      
       </ul>
 
       <!-- <BackHome /> -->
