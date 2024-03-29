@@ -256,7 +256,7 @@ section {
 footer{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   width: 50%;
   height: 98%;
   border: 2px solid #0d6efd;
