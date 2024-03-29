@@ -6,8 +6,8 @@
         <div class="header-title">
           <img src="../assets/imgs/media-assets-icon.svg" alt="" />
           <div>
-            <h2>Media Assets</h2>
-            <p>Upload images for advertisement from your local device.</p>
+            <h2>Media Activa</h2>
+            <p>Upload afbeeldingen voor advertenties vanaf je lokale apparaat.</p>
           </div>
         </div>
       </header>

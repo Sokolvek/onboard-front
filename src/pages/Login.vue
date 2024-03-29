@@ -5,19 +5,19 @@
         <section>
             <!-- <Logo /> -->
             <div>
-                <h2>Sign in</h2>
+                <h2>Aanmelden</h2>
                 <form action="">
                     <div class="form-input">
-                        <input v-model="state.email" type="email" placeholder="enter email or login" required>
+                        <input v-model="state.email" type="email" placeholder="E-mail of inloggen" required>
                     </div>
                     <div class="form-input">
-                        <input v-model="state.password" type="password" placeholder="enter password" required>
+                        <input v-model="state.password" type="password" placeholder="wachtwoord" required>
                     </div>
                     <!-- <div>
                         <input v-model="state.rememberMe" type="checkbox">
                         <label>Remember me</label>
                     </div> -->
-                    <button @click.prevent="login">Login</button>
+                    <button @click.prevent="login">Inloggen</button>
                 </form>
        
     
@@ -50,20 +50,20 @@ const url = import.meta.env.VITE_BASE_URL
 
 function wrongPassword(){
     popUpClass.value = "error"
-    popUpText.value = "wrong password or email"
+    popUpText.value = "verkeerd wachtwoord of e-mail"
 
 }
 
 function wrongEmail(){
     popUpClass.value = "error"
-    popUpText.value = " User with such email is not found"
+    popUpText.value = "Gebruiker met dergelijk e-mailadres is niet gevonden"
 
 }
 
 function successLogin(){
     
     popUpClass.value = "success"
-    popUpText.value = "success signed in"
+    popUpText.value = "succes aangemeld"
 
 }
 
@@ -84,7 +84,7 @@ async function login(){
 
     if(!state.email || !state.password){
         popUpClass.value = "error"
-        $toast.open({message:"please enter email or login", type:popUpClass.value, position:"top"})
+        $toast.open({message:"voer e-mail of login in", type:popUpClass.value, position:"top"})
         return
     }
 

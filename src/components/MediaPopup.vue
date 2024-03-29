@@ -2,13 +2,13 @@
     <div class="popup">
         <div class="popup-inner">
             <header class="header">
-                <h3>Upload File</h3>
+                <h3>Bestand uploaden</h3>
                 <!-- <p @click="emitFunction">close</p> -->
             </header>
             <label class="input-file">
 	   	<!-- <span class="input-file-text" type="text"></span> -->
 	   	<input type="file" @change="onFileChange">       
- 	   	<span class="input-file-btn">Select File</span>
+ 	   	<span class="input-file-btn">Selecteer bestand</span>
  	</label>
     <div v-if="images" class="img-preview">
         <!-- <img v-if="images.url[0]" :src="images.url[0]" alt="Image Preview" /> -->
@@ -16,7 +16,7 @@
         <img v-if="previewUrl" :src="previewUrl" alt="Image Preview" />
     </div>
             
-            <button class="input-file-btn" @click="loadImage">Load Image</button>
+            <button class="input-file-btn" @click="loadImage">Afbeelding laden</button>
             
         </div>
         <div class="shadow"></div>
@@ -52,7 +52,7 @@ function onFileChange(e) {
 }
 async function loadImage(){
     if(!file.value){
-        $toast.open({message:"please put an image", type:"error", position:"top"})
+        $toast.open({message:"plaats een afbeelding", type:"error", position:"top"})
         return
     }
     console.log(file.value)
@@ -70,9 +70,9 @@ async function loadImage(){
         }
     ).then((response) => {
         if(response.status == 200){
-            $toast.open({message:"success", type:"success", position:"top"})
+            $toast.open({message:"succes", type:"success", position:"top"})
         }else{
-            $toast.open({message:"error caused", type:"error", position:"top"})
+            $toast.open({message:"veroorzaakte fout", type:"error", position:"top"})
         }
         console.log(response)
     })

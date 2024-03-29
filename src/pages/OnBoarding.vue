@@ -19,18 +19,18 @@
             >1. In zoveel mogelijk detail, beschrijf jouw ideale klant.
           </label>
           <textarea
-          :placeholder="answers[0] || 'answer here'"
+          :placeholder="answers[0] || 'antwoord hier'"
             v-model="state.qus1"
             required
           ></textarea>
         </div>
         <div class="input">
           <label for=""
-            >2. Zjin er bepaadle sectoren waarin jullie idea3le klant vaak te
+            >2. Zjin er bepaadle sectoren waarin jullie ideale klant vaak te
             vinden is? Waarom past jullie aanbod goed bij hun behoeften?</label
           >
           <textarea
-          :placeholder="answers[1] || 'answer here'"
+          :placeholder="answers[1] || 'antwoord hier'"
             v-model="state.qus2"
             required
           ></textarea>
@@ -40,7 +40,7 @@
             >3. In zoveel mogelijk detail, beschrijf jouw ideale klant.</label
           >
           <textarea
-          :placeholder="answers[2] || 'answer here'"
+          :placeholder="answers[2] || 'antwoord hier'"
             v-model="state.qus3"
             required
           ></textarea>
@@ -51,7 +51,7 @@
             het voor hen op?</label
           >
           <textarea
-          :placeholder="answers[3] || 'answer here'"
+          :placeholder="answers[3] || 'antwoord hier'"
             v-model="state.qus4"
             required
           ></textarea>
@@ -64,7 +64,7 @@
           <textarea
      
             v-model="state.qus5"
-            :placeholder="answers[4] || 'answer here'"
+            :placeholder="answers[4] || 'antwoord hier'"
             required
           ></textarea>
         </div>
@@ -74,7 +74,7 @@
             concurrenten?</label
           >
           <textarea
-          :placeholder="answers[5] || 'answer here'"
+          :placeholder="answers[5] || 'antwoord hier'"
             v-model="state.qus6"
             required
           ></textarea>

@@ -2,25 +2,25 @@
   <div>
     <Header />
     <section>
-      <h2>Registration</h2>
+      <h2>Registratie</h2>
       <form action="">
           <div class="form-input">
               <!-- <label>Email address</label> -->
-              <input v-model="formValue.email" type="email" placeholder="Email or login" required>
+              <input v-model="formValue.email" type="email" placeholder="E-mail of inloggen" required>
           </div>
           <div class="form-input">
               <!-- <label  >Password</label> -->
-              <input v-model="formValue.password" type="password" placeholder="Password" required>
+              <input v-model="formValue.password" type="password" placeholder="Wachtwoord" required>
           </div>
           <div class="form-input">
               <!-- <label>Email address</label> -->
-              <input v-model="formValue.name" type="text" placeholder="Name" required>
+              <input v-model="formValue.name" type="text" placeholder="Naam" required>
           </div>
           <!-- <div>
               <input v-model="rememberMe" type="checkbox">
               <label>Remember me</label>
           </div> -->
-          <button @click.prevent="regUser">Register</button>
+          <button @click.prevent="regUser">Registreer</button>
       </form>
       <!-- <Transition>
           <AuthNotify :class="popUpClass" v-if="notifyState == true">{{ popUpText }}</AuthNotify>
@@ -55,14 +55,14 @@ function dissapearPopup(){
 
 function userExists(){
     popUpClass.value = "error"
-    popUpText.value = " User with such email already exists"
+    popUpText.value = "Gebruiker met dergelijk e-mailadres bestaat al"
     $toast.open({message:popUpText.value, type:popUpClass.value, position:"top"})
 }
 
 function successLogin(){
     
     popUpClass.value = "success"
-    popUpText.value = "successfully registered"
+    popUpText.value = "succesvol geregistreerd"
     $toast.open({message:popUpText.value, type:popUpClass.value, position:"top"})
     return popUpText.value
 }
@@ -71,7 +71,7 @@ function successLogin(){
 
 async function regUser(){
   if(!formValue.email || !formValue.name || !formValue.password){
-    $toast.open({message:"please fill the fields", type:"error", position:"top"})
+    $toast.open({message:"vul de velden in", type:"error", position:"top"})
     return
   }
 
