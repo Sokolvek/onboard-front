@@ -36,6 +36,7 @@ const store = useCounterStore()
     position: fixed;
     top: 50%;
     left: 50%;
+    max-width: 90%;
     transform: translate(-50%, -50%)
 }
 
