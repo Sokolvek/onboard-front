@@ -29,13 +29,13 @@ import info from "../assets/imgs/useful-icon.svg"
 import contact from "../assets/imgs/contact-icon.svg"
 
 const items = [
-    {name: '', icon: profile, title: 'Profile'},
-    {name: 'onboarding', icon: onBoard, title: 'Onboarding'},
-    {name: 'meeting-notes', icon: notes, title: 'Meeting Notes'},
-    {name: 'media-assets', icon: mediaAssets, title: 'Media Assets'},
-    {name: 'paid-advertising-reports', icon: reports, title: 'Paid Advertising Reports'},
-    {name: 'useful-info', icon: info, title: 'Useful Info'},
-    {name: 'contacts-details', icon: contact, title: 'Client Contact Details'},
+    {name: '', icon: profile, title: 'Profiel'},
+    {name: 'onboarding', icon: onBoard, title: 'Inwerken'},
+    {name: 'meeting-notes', icon: notes, title: 'Notities vergadering'},
+    {name: 'media-assets', icon: mediaAssets, title: 'Media Activa'},
+    {name: 'paid-advertising-reports', icon: reports, title: 'Rapporten betaalde reclame'},
+    {name: 'useful-info', icon: info, title: 'Nuttige info'},
+    {name: 'contacts-details', icon: contact, title: 'Contactgegevens klant'},
 ]
 
 function goToPage(name, index) {

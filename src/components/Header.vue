@@ -3,10 +3,10 @@
         <nav class="nav">
             <ul class="nav-list">
                 <li class="nav-item">
-                    <router-link to="/signup">Register</router-link>
+                    <router-link to="/signup">Registreer</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link to="/login">Login</router-link>
+                    <router-link to="/login">Inloggen</router-link>
                 </li>
             </ul>
         </nav>

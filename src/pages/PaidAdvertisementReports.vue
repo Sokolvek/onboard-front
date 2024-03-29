@@ -6,10 +6,10 @@
         <div class="header-title">
           <img src="../assets/imgs/paid-icon.svg" alt="" />
           <div>
-            <h2>Paid Advertisement Reports</h2>
+            <h2>Rapporten betaalde advertenties</h2>
             <p>
-              Reports from the company to illustrate the impact of our
-              cooperation.
+              Rapporten van het bedrijf om de impact van onze
+              samenwerking.
             </p>
           </div>
         </div>
@@ -50,6 +50,34 @@
           </div>
         </li>
 
+        <div class="report-wrapper">
+          <div>
+            <ReportsSlider :imgs="report.imageUrls"/>
+            
+          </div>
+          <div class="report-middle">
+            <p class="report-name">
+                {{ report.reportData.name }}
+                {{report.reportId}}
+            <!-- {{ image.imageUrls[5].split("/")[image.imageUrls[5].split("/").length - 1] }} -->
+          </p>
+            <button @click="downloadReport(report.reportId)" class="download-report">
+                 <img src="../assets/imgs/download-icon.svg" alt="">
+                 Rapport downloaden
+            </button>
+          </div>
+          <footer>
+            <div>
+                <p>Total weight</p>
+                <span>{{ report.sizeKb }}</span>
+            </div>
+            <div>
+                <p>Created</p>
+                <span>{{ report.reportData.date }}</span>
+            </div>
+          </footer>
+        
+        </div>
       </ul>
 
       <!-- <BackHome /> -->

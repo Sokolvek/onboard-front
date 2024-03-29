@@ -6,8 +6,8 @@
                 <div class="header-title">
                     <img src="../assets/imgs/useful-icon.svg" alt="">
                     <div>
-                        <h2>Useful Info</h2>
-                        <p>Important things to keep in mind.</p>
+                        <h2>Nuttige informatie</h2>
+                        <p>Belangrijke zaken om in gedachten te houden.</p>
                     </div>
                 </div>
                 <!-- <NavBar /> -->
