@@ -201,7 +201,7 @@ h3 {
 .roadmap-desc{
     position: relative;
     margin-top: 20px;
-    margin-left: 50px;
+    margin-left: 30px;
 }
 
 .open-menu-btn{
