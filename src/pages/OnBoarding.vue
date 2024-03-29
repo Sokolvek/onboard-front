@@ -7,8 +7,8 @@
         <div class="header-title">
           <img src="../assets/imgs/quiz.svg" alt="" />
           <div>
-            <h2>Onboarding</h2>
-            <p>Answer these questions for personalizing your customer experience.</p>
+            <h2>Inwerken</h2>
+            <p>Beantwoord deze vragen voor meer gerichte advertenties.</p>
           </div>
         </div>
         <!-- <NavBar /> -->
@@ -47,7 +47,7 @@
         </div>
         <div class="input">
           <label for=""
-            >4. Waarom maken uw klanten gebruik van uw dienst? Welk probleem lost
+            >4. Waarom maken uwsturen klanten gebruik van uw dienst? Welk probleem lost
             het voor hen op?</label
           >
           <textarea
@@ -79,7 +79,7 @@
             required
           ></textarea>
         </div>
-        <button @click.prevent="sendForm" class="button">Send</button>
+        <button @click.prevent="sendForm" class="button">Verzenden</button>
       </form>
       <!-- <BackHome /> -->
     </section>

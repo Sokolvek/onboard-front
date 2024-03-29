@@ -29,7 +29,7 @@
                         </p>
                     </div>
                     <footer class="note-date">
-                        <p>Created</p>
+                        <p>Gemaakt</p>
                         <p class="note-text">{{ note.date }}</p>
                     </footer>
 

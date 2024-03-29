@@ -6,8 +6,8 @@
                 <div class="header-title">
                     <img src="../assets/imgs/contact-icon.svg" alt="">
                     <div>
-                        <h2>Contact Details</h2>
-                        <p>Detailed information about the contacts to help you keep in touch.</p>
+                        <h2>Contactgegevens</h2>
+                        <p>Gedetailleerde informatie over de contacten om u te helpen in contact te blijven.</p>
                     </div>
                 </div>
     

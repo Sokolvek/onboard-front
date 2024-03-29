@@ -11,7 +11,7 @@
                         <input v-model="state.email" type="email" placeholder="E-mail of inloggen" required>
                     </div>
                     <div class="form-input">
-                        <input v-model="state.password" type="password" placeholder="wachtwoord" required>
+                        <input v-model="state.password" type="password" placeholder="Wachtwoord" required>
                     </div>
                     <!-- <div>
                         <input v-model="state.rememberMe" type="checkbox">
