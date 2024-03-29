@@ -8,7 +8,7 @@
           <img src="../assets/imgs/quiz.svg" alt="" />
           <div>
             <h2>Inwerken</h2>
-            <p>Beantwoord deze vragen voor meer gerichte advertenties.</p>
+            <p>Beantwoord de vragen, zodat wij een nauwkeurig beeld hebben van de aanpak die we moeten volgen.</p>
           </div>
         </div>
         <!-- <NavBar /> -->
@@ -37,8 +37,7 @@
         </div>
         <div class="input">
           <label for=""
-            >3. Waarom maken uwsturen klanten gebruik van uw dienst? Welk probleem lost
-              het voor hen op?</label
+            >3. Waarom maken uw klanten gebruik van uw dienst? Welke problemen lost het voor hen op?</label
           >
           <textarea
           :placeholder="answers[2] || 'antwoord hier'"
@@ -59,8 +58,7 @@
         </div>
         <div class="input">
           <label for=""
-            >5. Waarom kiezen klanten voor uw bedrijf in plaats van voor uw
-              concurrenten?</label
+            >5. Waarom kiezen klanten voor uw bedrijf in plaats van de concurrent?</label
           >
           <textarea
      
@@ -72,8 +70,7 @@
         <div class="input">
           <label for=""
             >6. Heeft u eerder gebruik gemaakt van diensten van marketingbedrijven?
-              Zo ja, welke aspecten van die ervaring waren voor u het meest waardevol, en waar zag u ruimte voor verbetering?
-              Zo nee, wat heeft u tot nu toe weerhouden om deze diensten te gebruiken?</label
+              Zo ja, welke aspecten van die ervaring waren voor u het meest waardevol, en waar zag u ruimte voor verbetering?</label
           >
           <textarea
           :placeholder="answers[5] || 'antwoord hier'"

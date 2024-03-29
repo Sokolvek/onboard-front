@@ -6,10 +6,9 @@
         <div class="header-title">
           <img src="../assets/imgs/paid-icon.svg" alt="" />
           <div>
-            <h2>Rapporten betaalde advertenties</h2>
+            <h2>Betaalde reclame rapporten</h2>
             <p>
-              Rapporten van het bedrijf om de impact van onze
-              samenwerking.
+                Hier is een overzicht van de resultaten die tot nu toe zijn behaald met de advertenties voor uw bedrijf.
             </p>
           </div>
         </div>

@@ -6,11 +6,11 @@
             <!-- <NavBar class="profile-nav" /> -->
             <div class="profile-block">
                 <img src="../assets/imgs/profileAvatar.svg" alt="">
-                <h2>Goedemiddag, lieve {{userData.fullName}}! 👋</h2>
-                <p>Welkom! Met behulp van het menu aan de rechterkant kunt u toegang krijgen tot alle tools die u kunnen helpen bij het onboardingproces.<br /> Ze omvatten een quiz om u een effectievere targeting te bieden, een pagina met rapporten<br /> over betaalde advertenties, en pagina's met alle notities van onze vergaderingen!</p>
+                <h2>Goedemiddag, {{userData.fullName}}! 👋</h2>
+                <p>Welkom! Met behulp van het menu aan de rechterkant kunt u toegang krijgen tot alle tools die u kunt gebruiken bij het onboardingproces.<br />Zo is er ook een vragenlijst om ons de juiste informatie te bieden voor het targeten van klanten, een pagina met rapporten zodat u op de hoogte blijft, <br /> een pagina om op de hoogte te blijven van alle geplaatste advertenties, en een pagina met notities van al onze vergaderingen.</p>
             </div>
             <div class="roadmap">
-                <h3>De Routekaart</h3>
+                <h3>Roadmap</h3>
                 <div class="roadmap-stages">
                     <div class="stage"  @click="index = i"  v-for="(btn, i) in images" :key="i">
                     <img v-if="userData.activeStage == i+1" :src="btn.image" alt="">

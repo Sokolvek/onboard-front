@@ -7,7 +7,7 @@
                     <img src="../assets/imgs/useful-icon.svg" alt="">
                     <div>
                         <h2>Nuttige informatie</h2>
-                        <p>Belangrijke zaken om in gedachten te houden.</p>
+                        <p>Nuttige informatie om in gedachten te houden.</p>
                     </div>
                 </div>
                 <!-- <NavBar /> -->

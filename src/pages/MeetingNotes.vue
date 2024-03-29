@@ -6,8 +6,8 @@
                 <div class="header-title">
                     <img src="../assets/imgs/meeting-icon.svg" alt=""/>
                     <div>
-                        <h2>Notities van vergaderingen</h2>
-                        <p>Notities van vorige vergaderingen. Nieuwe afspraken.</p>
+                        <h2>Vergadering notities</h2>
+                        <p>Hier vindt u een overzicht van alle notities van de vorige vergaderingen.</p>
                     </div>
                 </div>
                 <!-- <NavBar /> -->

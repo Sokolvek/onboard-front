@@ -16,7 +16,7 @@
         <img v-if="previewUrl" :src="previewUrl" alt="Image Preview" />
     </div>
             
-            <button class="input-file-btn" @click="loadImage">Afbeelding laden</button>
+            <button class="input-file-btn" @click="loadImage">Save image</button>
             
         </div>
         <div class="shadow"></div>

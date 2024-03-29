@@ -29,12 +29,12 @@ import info from "../assets/imgs/useful-icon.svg"
 import contact from "../assets/imgs/contact-icon.svg"
 
 const items = [
-    {name: '', icon: profile, title: 'Profiel'},
+    {name: '', icon: profile, title: 'Profile'},
     {name: 'onboarding', icon: onBoard, title: 'Inwerken'},
-    {name: 'meeting-notes', icon: notes, title: 'Notities vergadering'},
-    {name: 'media-assets', icon: mediaAssets, title: 'Media Activa'},
-    {name: 'paid-advertising-reports', icon: reports, title: 'Rapporten betaalde reclame'},
-    {name: 'useful-info', icon: info, title: 'Nuttige info'},
+    {name: 'meeting-notes', icon: notes, title: 'Vergadering notities'},
+    {name: 'media-assets', icon: mediaAssets, title: 'Media collectie'},
+    {name: 'paid-advertising-reports', icon: reports, title: 'Betaalde reclame rapporten'},
+    {name: 'useful-info', icon: info, title: 'Nuttige informatie'},
     {name: 'contacts-details', icon: contact, title: 'Contactgegevens klant'},
 ]
 
