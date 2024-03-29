@@ -113,7 +113,7 @@ async function sendForm(){
     const haveEmptyString = stateArr.some((value) => value === "")
     console.log("start")
     if(haveEmptyString){
-      $toast.open({message:"please fill the fields", type:"error", position:"top"})
+      $toast.open({message:"vul alstublieft alle velden in", type:"error", position:"top"})
       return
     }
     const body = {
