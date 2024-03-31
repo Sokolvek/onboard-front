@@ -93,7 +93,7 @@ async function changeStage(){
 
 async function downloadAllMedia() {
     console.log(route.params.email);
-    await fetch(`${url}/image/media-assets/zipped/${route.params.email}`, {
+    await fetch(`${url}/media-assets/zipped/${route.params.email}`, {
         method: "GET",
         headers: { 
             "Authorization": "Bearer " + store.jwt
