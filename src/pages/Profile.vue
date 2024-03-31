@@ -24,21 +24,22 @@
 
                     </TransitionGroup>
                 </div>
-                <!-- <button class="open-menu-btn" @click="store.navPopup = true">Open menu</button> -->
             </div>
             <BackHome />
         </section>
+            <button class="open-menu-btn" @click="logout">logout</button>
     </div>
 </template>
 
 <script setup>
 import { onMounted, ref } from "vue"
 import { useCounterStore } from "../stores/counter";
+import { useRouter } from "vue-router";
 import NavBar from "../components/NavBar.vue";
 import NewNav from "../components/NewNav.vue";
 
 const store = useCounterStore()
-
+const router = useRouter()
 const index = ref(0)
 const url = import.meta.env.VITE_BASE_URL
 
@@ -59,6 +60,19 @@ const images = ref([
         image: thirdStage
     },
 ])
+
+function logout(){
+    const cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i];
+        const eqPos = cookie.indexOf("=");
+        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+    localStorage.clear()
+    router.go()
+    
+}
 
 async function getUserData(){
     if(localStorage.getItem("email") == null) return
@@ -205,12 +219,15 @@ h3 {
 }
 
 .open-menu-btn{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
     margin-top: 20px;
     padding: 0.375rem 0.75rem;
     border: none;
     border-radius: 3px;
     color: white;
-    background-color: #0d6efd;
+    background-color: #3873E9;
     font-size: 18px;
 }
 
