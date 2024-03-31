@@ -36,7 +36,7 @@ const store = useCounterStore();
 const images = ref();
 const url = import.meta.env.VITE_BASE_URL;
 async function getImages() {
-  await fetch(`${url}/image/media-assets/${localStorage.getItem("email")}`, {
+  await fetch(`${url}/media-assets/${localStorage.getItem("email")}`, {
     method: "GET",
     headers: {
       Authorization: "Bearer " + store.jwt,
