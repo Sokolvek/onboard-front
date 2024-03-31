@@ -7,7 +7,7 @@
                 <p>{{ route.params.email }}</p>
             </div>
         </header>
-        <form action="">
+        <div class="form">
             <div class="stage-changer">
                 <h2>Choosen stage {{ userData.activeStage }}</h2>
                 <p>Client progress</p>
@@ -26,7 +26,9 @@
             <ChangeUsefulNote :email="route.params.email" :content="userData.usefulInfoContent" />
             <ChangeContacts :email="route.params.email" :content="userData.contactDetailsContent" />
             <AddMedia :email="route.params.email" />
-        </form>
+            <AllReports :email="route.params.email"/>
+            <AllNotes :email="route.params.email" />
+        </div>
         <button @click="downloadAllMedia">download media assets</button>
         <FormAnswers :answers="userData.formAnswers"/>
     </section>
@@ -42,6 +44,8 @@ import ChangeUsefulNote from "../../components/admin/ChangeUsefulNote.vue"
 import ChangeContacts from "../../components/admin/ChangeContacts.vue"
 import AddMedia from "../../components/admin/AddMedia.vue"
 import FormAnswers from "../../components/admin/FormAnswers.vue";
+import AllReports from "../../components/admin/AllReports.vue";
+import AllNotes from "../../components/admin/AllNotes.vue";
 
 const store = useCounterStore()
 const url = import.meta.env.VITE_BASE_URL
@@ -123,7 +127,7 @@ onMounted(() =>{
 </script>
 
 <style scoped>
-form{
+.form{
     background: #cbd0d6 ;
     padding: 40px;
 }

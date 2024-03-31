@@ -7,7 +7,9 @@ export const useCounterStore = defineStore("counter", {
     sum: 0,
     navPopup:false,
     jwt:null,
-    navIndex:0
+    navIndex:0,
+    reportPopupState:false,
+    reportPopupUrl:""
   }),
   getters: {
 

@@ -17,12 +17,14 @@ import 'vue-toast-notification/dist/theme-sugar.css';
 const $toast = useToast();
 const store = useCounterStore()
 const file = ref()
+const files = []
 const title = ref("")
 const url = import.meta.env.VITE_BASE_URL
 
 function onFileChange(e) {
+    files.push(e.target.files[0])
     file.value = e.target.files;
-    console.log(file.value[0])
+    console.log(files,  files[0])
 }
 
 const props = defineProps({
@@ -36,10 +38,10 @@ async function addMedia(){
 
    
     
-    console.log(file.value[0])
+    console.log(files)
     const formData = new FormData()
     formData.append("clientEmail", props.email)
-    formData.append("files", file.value[0])
+    formData.append("files", file.value)
     formData.append("reportName", title.value)
     await fetch(`${url}/report/${props.email}`,
         {
@@ -50,6 +52,7 @@ async function addMedia(){
             body:formData
         }
     ).then((response) => {
+        console.log(response)
         if(response.status == 200){
             $toast.open({message:"success", type:"success", position:"top"})
         }else{

@@ -35,12 +35,15 @@ const previewUrl = ref("")
 const url = import.meta.env.VITE_BASE_URL
 const images = ref([])
 const file = ref()
+const files = ref([])
 const emitFunction = function() {
     emit('closePopup')
 }
 function onFileChange(e) {
     file.value = e.target.files[0];
-    console.log(file.value)
+    files.value.push(e.target.files[0])
+
+    console.log(e.target.files, files.value)
     if (file) {
         // if(file.value === 0) return
         // for(let i = 0; i < file.value.length; i++){
