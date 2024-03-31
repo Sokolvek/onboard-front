@@ -41,7 +41,7 @@ async function addMedia(){
     console.log(files)
     const formData = new FormData()
     formData.append("clientEmail", props.email)
-    formData.append("files", file.value)
+    formData.append("files", file.value[0])
     formData.append("reportName", title.value)
     await fetch(`${url}/report/${props.email}`,
         {
