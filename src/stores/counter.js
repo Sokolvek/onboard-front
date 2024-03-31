@@ -9,7 +9,8 @@ export const useCounterStore = defineStore("counter", {
     jwt:null,
     navIndex:0,
     reportPopupState:false,
-    reportPopupUrl:""
+    reportPopupUrl:"",
+    canBeClicked:true
   }),
   getters: {
 
@@ -28,6 +29,7 @@ export const useCounterStore = defineStore("counter", {
           return cookie
       }
       return null
-    }
+    },
+
   },
 });

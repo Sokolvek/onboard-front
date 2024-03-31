@@ -106,6 +106,11 @@ const state = reactive({
 const answers = ref([])
 
 async function sendForm(){
+  if(!store.canBeClicked){
+        return
+    }
+    store.canBeClicked = false
+    setTimeout(() => store.canBeClicked = true, 3000)
     const stateArr = Object.values(state)
     const haveEmptyString = stateArr.some((value) => value === "")
     console.log("start")

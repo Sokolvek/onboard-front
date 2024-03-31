@@ -16,7 +16,7 @@
         <img v-if="previewUrl" :src="previewUrl" alt="Image Preview" />
     </div>
             
-            <button class="input-file-btn" @click="loadImage">Save image</button>
+            <button  class="input-file-btn" @click="loadImage">Save image</button>
             
         </div>
         <div class="shadow"></div>
@@ -54,6 +54,11 @@ function onFileChange(e) {
  }
 }
 async function loadImage(){
+    if(!store.canBeClicked){
+        return
+    }
+    store.canBeClicked = false
+    setTimeout(() => store.canBeClicked = true, 3000)
     if(!file.value){
         $toast.open({message:"plaats een afbeelding", type:"error", position:"top"})
         return
@@ -80,6 +85,8 @@ async function loadImage(){
         console.log(response)
     })
 }
+
+
 
 </script>
 
