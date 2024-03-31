@@ -62,7 +62,7 @@ async function loadImage(){
     const formData = new FormData()
     formData.append("clientEmail", localStorage.getItem("email"))
     formData.append("files", file.value)
-    await fetch(`${url}/image/media-assets/${localStorage.getItem("email")}`,
+    await fetch(`${url}/media-assets/${localStorage.getItem("email")}`,
         {
             method:"PUT",
             headers:{
